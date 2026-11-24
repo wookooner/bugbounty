@@ -1,0 +1,32 @@
+
+
+  TimelockController
+    methods
+      simple
+        execute
+          ✔ revert if operation is not scheduled
+          with scheduled operation
+            ✔ revert if execution comes too early 1/2
+            ✔ revert if execution comes too early 2/2
+            on time
+              ✔ executor can reveal
+              ✔ prevent non-executor from revealing
+      batch
+        execute
+          ✔ revert if operation is not scheduled
+          with scheduled operation
+            ✔ revert if execution comes too early 1/2
+            ✔ revert if execution comes too early 2/2
+            on time
+              ✔ executor can reveal (88ms)
+              ✔ prevent non-executor from revealing
+    dependency
+      ✔ cannot execute before dependency
+      ✔ can execute after dependency
+    usage scenario
+      ✔ call payable with eth
+      ✔ call reverting with eth
+
+
+  14 passing (1s)
+

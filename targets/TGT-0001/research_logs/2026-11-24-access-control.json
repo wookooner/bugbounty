@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-ACCESS-CONTROL",
+  "date": "2026-11-24",
+  "target": {
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "modules": [
+      "AccessControl",
+      "AccessControlDefaultAdminRules"
+    ]
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/information/",
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "role-management",
+      "subject": "일반 역할의 부여·회수 권한과 본인 역할 포기",
+      "observation": "grantRole 및 revokeRole은 getRoleAdmin(role)로 조회한 역할을 요구한다. renounceRole은 호출자 주소를 확인한다.",
+      "evidence": [
+        {
+          "path": "contracts/access/AccessControl.sol",
+          "lines": [
+            104,
+            160
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            33,
+            123
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "default-admin-initialization",
+      "subject": "최초 관리자 지정과 관리자 단일성",
+      "observation": "생성자가 0 주소를 거부하고 초기 관리자를 부여한다. 공개 grantRole 및 revokeRole은 기본 관리자 역할을 거부하고, 내부 _grantRole은 기존 기본 관리자가 있을 때 추가 부여를 거부한다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            53,
+            62
+          ]
+        },
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            78,
+            96
+          ]
+        },
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            122,
+            139
+          ]
+        },
+        {
+          "path": "test/access/extensions/AccessControlDefaultAdminRules.test.js",
+          "lines": [
+            12,
+            28
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            398,
+            427
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "default-admin-transfer",
+      "subject": "예약·취소 권한, 수락 주체 및 예약 시각 경계",
+      "observation": "현재 관리자만 이전을 예약하거나 취소할 수 있다. 예약된 수신자만 수락할 수 있고, 블록 시각이 예약 시각을 초과해야 기존 관리자 역할 회수와 새 관리자 역할 부여가 진행된다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            194,
+            248
+          ]
+        },
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            359,
+            371
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            429,
+            639
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "default-admin-renunciation",
+      "subject": "기본 관리자 역할 포기와 내부 복구 경로",
+      "observation": "현재 관리자의 역할 포기에는 0 주소로의 이전 예약과 지연 경과가 필요하다. 포기 이후 남는 내부 _grantRole 경로의 노출 여부는 상속 계약 구현에 달려 있다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            98,
+            147
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            641,
+            710
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "default-admin-delay-change",
+      "subject": "이전 지연 변경의 적용 시점과 기존 예약과의 관계",
+      "observation": "지연을 줄이면 기존 지연과 새 지연의 차이만큼 적용을 기다린다. 이미 예약된 관리자 이전에는 예약 시점에 계산해 저장한 시각이 사용된다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            173,
+            188
+          ]
+        },
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            194,
+            248
+          ]
+        },
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            254,
+            309
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            492,
+            526
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            712,
+            862
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "documented-inheritance-example",
+      "subject": "공식 MyToken 상속 예시의 초기 관리자와 이전 지연",
+      "observation": "예시는 배포 시 msg.sender를 최초 관리자로 지정하고 3일의 이전 지연을 설정한다. 예시에는 내부 권한 변경 함수를 공개하는 별도 메서드가 없다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            30,
+            39
+          ]
+        }
+      ],
+      "status": "observed_in_source"
+    }
+  ],
+  "verification": {
+    "methods": [
+      "static_review",
+      "existing_local_tests"
+    ],
+    "network": "hardhat_local",
+    "hardhat_version": "2.28.5",
+    "solc_version": "0.8.35",
+    "evm_version": "osaka",
+    "test_files": [
+      "test/access/AccessControl.test.js",
+      "test/access/extensions/AccessControlDefaultAdminRules.test.js"
+    ],
+    "compiled_solidity_files": 11,
+    "passed": 144,
+    "failed": 0,
+    "setup_issue_resolved": "홈 디렉터리가 읽기 전용이어서 Hardhat 설정·캐시·데이터 경로를 작업공간 내부로 지정했다."
+  },
+  "hypotheses": [],
+  "findings": [],
+  "reusable_notes": [
+    "권한 제어 라이브러리를 검토할 때는 외부 진입점의 호출자 검사와 상속 구현에서 호출할 수 있는 내부 함수의 노출 여부를 각각 확인한다.",
+    "시간 기반 권한 변경은 예약 직전, 예약 시각과 동일한 경우, 예약 시각 직후를 구분해 검토한다."
+  ],
+  "open_items": [
+    "상속 계약의 초기 관리자 인수 선택 및 내부 권한 변경 함수 노출 여부",
+    "상속 계약별 관리자 이전과 지연 변경 설정의 적절성"
+  ],
+  "next_action": "검토할 실제 상속 계약이 정해지면 배포 구성에서 최초 관리자 주소를 추적하고 공개 권한 변경 진입점을 확인한다."
+}

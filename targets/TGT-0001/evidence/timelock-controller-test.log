@@ -1,0 +1,24 @@
+Compiled 11 Solidity files successfully (evm target: osaka).
+
+
+  TimelockController
+    ✔ initial state
+    ✔ optional admin
+    methods
+      simple
+        schedule
+          ✔ prevent non-proposer from committing
+          ✔ enforce minimum delay
+      batch
+        schedule
+          ✔ prevent non-proposer from committing
+          ✔ enforce minimum delay
+      cancel
+        ✔ prevent non-canceller from canceling
+    maintenance
+      ✔ prevent unauthorized maintenance
+      ✔ timelock scheduled maintenance
+
+
+  9 passing (943ms)
+

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-ADMIN-INHERITANCE",
+  "date": "2026-11-24",
+  "target": {
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "modules": [
+      "AccessControlDefaultAdminRules",
+      "TimelockController"
+    ]
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "default-admin-rules-consumers",
+      "subject": "릴리스 내 확장 계약의 상속 사례",
+      "observation": "추적된 Solidity 파일의 식별자 검색에서 contracts/ 아래 실제 상속 구현은 발견되지 않았다. 문서의 MyToken 예시는 배포 호출자를, 형식 검증용 하네스는 명시적 생성자 인수를 초기 관리자로 전달한다. 하네스는 패치된 소스를 가져오며 자체 외부 헬퍼는 읽기 전용이다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlDefaultAdminRules.sol",
+          "lines": [
+            30,
+            41
+          ]
+        },
+        {
+          "path": "fv/harnesses/AccessControlDefaultAdminRulesHarness.sol",
+          "lines": [
+            4,
+            45
+          ]
+        }
+      ],
+      "status": "observed_in_source"
+    },
+    {
+      "id": "timelock-initial-admin",
+      "subject": "생성자에서 기본 관리자 및 작업 역할 부여",
+      "observation": "AccessControl을 상속한 TimelockController는 주소 자체에 기본 관리자 역할을 부여한다. 생성자 admin이 0 주소이면 외부 초기 관리자를 두지 않는다. proposers에는 제안·취소 역할, executors에는 실행 역할을 설정한다. 외부 초기 관리자가 있으면 상속된 역할 관리 함수를 운영 준비에 사용할 수 있다.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            102,
+            137
+          ]
+        },
+        {
+          "path": "contracts/access/AccessControl.sol",
+          "lines": [
+            104,
+            137
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            42,
+            51
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            72,
+            108
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "timelock-schedule-authority",
+      "subject": "단건·일괄 예약, 최소 지연, 취소 권한",
+      "observation": "단건과 일괄 예약에는 제안자 역할이 필요하고, 예약 지연은 최소 지연 이상이어야 한다. 취소에는 취소자 역할이 필요하다.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            255,
+            342
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            221,
+            254
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            574,
+            608
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            937,
+            941
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "timelock-delay-authority",
+      "subject": "최소 지연 변경 호출자",
+      "observation": "updateDelay는 TimelockController 자체에서 온 호출만 허용한다. 기존 테스트에서는 외부 호출이 거부되고 예약된 자체 호출은 승인된 뒤 지연을 변경했다.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            437,
+            454
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            945,
+            977
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    }
+  ],
+  "verification": {
+    "methods": [
+      "tracked_source_identifier_search",
+      "static_review",
+      "existing_local_tests"
+    ],
+    "network": "hardhat_local",
+    "hardhat_version": "2.28.5",
+    "solc_version": "0.8.35",
+    "evm_version": "osaka",
+    "test_files": [
+      "test/governance/TimelockController.test.js"
+    ],
+    "test_filter": "(initial state|optional admin|prevent non-proposer from committing|enforce minimum delay|prevent non-canceller from canceling|prevent unauthorized maintenance|timelock scheduled maintenance)$",
+    "passed": 9,
+    "failed": 0
+  },
+  "hypotheses": [],
+  "findings": [],
+  "reusable_notes": [
+    "초기 관리자 권한을 확인할 때 생성자에서 설정된 계약 자체 권한과 외부 초기 설정 계정 권한을 각각 추적한다.",
+    "프레임워크가 생성한 테스트 계약과 형식 검증용 하네스를 운영 배포 증거로 집계하지 않는다."
+  ],
+  "open_items": [
+    "특정 운영 배포의 생성자 입력 및 외부 초기 관리자 역할 포기 여부는 배포 식별자가 있어야 판단할 수 있다.",
+    "TimelockController의 실행 권한과 작업 상태 전이 전체는 이번 검토에 포함되지 않았다."
+  ],
+  "next_action": "같은 릴리스의 TimelockController 실행 진입점에서 지정 실행자와 공개 실행 설정을 비교하고, 기존 테스트의 Ready, 선행 작업, Done 규칙을 확인한다."
+}

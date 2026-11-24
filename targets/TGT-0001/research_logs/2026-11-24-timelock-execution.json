@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-TIMELOCK-EXECUTION",
+  "date": "2026-11-24",
+  "target": {
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "modules": [
+      "TimelockController"
+    ],
+    "deployment_address": null
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/information/",
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "executor-authorization",
+      "invariant": "실행자 역할을 확인한다. 0 주소에 실행자 역할을 부여한 구성에서는 준비된 작업을 누구나 실행할 수 있다.",
+      "preconditions": [
+        "제안자가 등록한 작업",
+        "지정 실행자 또는 공개 실행 구성"
+      ],
+      "expected": "지정 실행 구성은 역할 없는 호출자를 거부하고, 공개 실행 구성은 준비된 작업의 실행을 허용한다.",
+      "observed": "원본 단건·배치 테스트에서 지정 실행자 통과, 기타 호출자 거부. 추가 단건 테스트에서 역할 없는 호출자가 공개 설정의 예약 작업을 실행해 CallExecuted가 발생하고 Done으로 전이했다.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            139,
+            150
+          ]
+        },
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            356,
+            404
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            347,
+            383
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            685,
+            728
+          ]
+        },
+        {
+          "path": "evidence/checks/timelock-open-execution.test.js",
+          "lines": [
+            6,
+            27
+          ],
+          "origin": "local"
+        }
+      ],
+      "status": "confirmed_by_local_tests"
+    },
+    {
+      "id": "operation-state",
+      "invariant": "Ready 작업만 실행하고, 지정된 선행 작업은 Done이어야 한다. 정상 실행 후 작업은 Done이 된다.",
+      "preconditions": [
+        "예약 시각",
+        "선행 작업이 지정된 경우 해당 작업의 상태"
+      ],
+      "expected": "미예약·지연 미경과·선행 작업 미완료 상태는 거부되고, 조건 충족 시 실행이 완료된다.",
+      "observed": "기존 단건·배치 테스트에서 미예약 및 조기 실행 거부. 선행 작업 완료 전후의 기대 결과와 추가 정상 테스트의 Ready 및 Done 확인.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            194,
+            216
+          ]
+        },
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            418,
+            435
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            271,
+            346
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            609,
+            684
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            1020,
+            1055
+          ]
+        },
+        {
+          "path": "evidence/checks/timelock-open-execution.test.js",
+          "lines": [
+            21,
+            27
+          ],
+          "origin": "local"
+        }
+      ],
+      "status": "confirmed_by_local_tests"
+    },
+    {
+      "id": "eth-transfer",
+      "invariant": "실행은 작업에 설정한 ETH 값을 외부 호출에 전달하고, 실패한 호출에서 수신 잔액이 늘지 않는다.",
+      "preconditions": [
+        "로컬 수신 계약",
+        "예약 값 1 wei"
+      ],
+      "expected": "정상 수신 시 1 wei가 전달되고, 실패 케이스에서는 수신 잔액이 유지된다.",
+      "observed": "정상 케이스의 수신 계약 잔액 0 → 1 wei, Timelock 잔액 0 → 0. 실패 케이스는 FailedCall, 두 계약 잔액 0 → 0.",
+      "evidence": [
+        {
+          "path": "contracts/governance/TimelockController.sol",
+          "lines": [
+            407,
+            413
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            1152,
+            1178
+          ]
+        },
+        {
+          "path": "test/governance/TimelockController.test.js",
+          "lines": [
+            1208,
+            1234
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    }
+  ],
+  "verification": {
+    "methods": [
+      "static_review",
+      "existing_local_tests",
+      "added_local_behavior_test"
+    ],
+    "network": "hardhat_local",
+    "hardhat_version": "2.28.5",
+    "solc_version": "0.8.35",
+    "evm_version": "osaka",
+    "passed": 15,
+    "failed": 0,
+    "runs": [
+      {
+        "file": "test/governance/TimelockController.test.js",
+        "filter": "(revert if operation is not scheduled|revert if execution comes too early [12]/2|executor can reveal|prevent non-executor from revealing|cannot execute before dependency|can execute after dependency|call payable with eth|call reverting with eth)$",
+        "passed": 14,
+        "log": "evidence/timelock-execution-test.log"
+      },
+      {
+        "file": "evidence/checks/timelock-open-execution.test.js",
+        "passed": 1,
+        "log": "evidence/timelock-open-execution-test.log"
+      }
+    ]
+  },
+  "known_issue_review": [
+    {
+      "source": "https://github.com/OpenZeppelin/openzeppelin-contracts/security/advisories/GHSA-fg47-3c2x-m2wr",
+      "result": "과거 TimelockController 권고의 명시된 영향 버전 범위에 v5.7.0은 포함되지 않는다."
+    },
+    {
+      "source": "https://immunefi.com/bug-bounty/openzeppelin/information/#known-issues",
+      "result": "공식 안내 페이지 텍스트에서 TimelockController 명칭 일치를 찾지 못했다. 비공개 제출과 전체 감사 문서는 이번 검색 범위에 포함되지 않았다."
+    }
+  ],
+  "hypotheses": [],
+  "findings": [],
+  "impact_assessment": {
+    "status": "no_confirmed_impact",
+    "severity": null,
+    "submission_status": "not_ready"
+  },
+  "reusable_notes": [
+    "역할 설정과 작업 상태 조건은 서로 다른 검사로 기록한다.",
+    "ETH 검증의 로컬 잔액 변화와 실제 운영 손실 추정은 따로 판단한다."
+  ],
+  "open_items": [
+    "공개 실행의 배치 동작은 소스에서 확인했다. 추가 테스트는 단건에 한정됐다.",
+    "특정 운영 배포의 실행자 역할 구성, 보유 자산, 사용자 영향은 확인되지 않았다."
+  ],
+  "next_action": "운영 배포가 분석 대상으로 정해지면 배포 주소와 버전을 고정한 뒤 실행자 역할 설정을 확인한다."
+}
