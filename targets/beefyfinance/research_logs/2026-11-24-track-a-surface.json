@@ -1,0 +1,164 @@
+{
+  "id": "2026-11-24-track-a-surface",
+  "date": "2026-11-24",
+  "target": "beefyfinance",
+  "phase": "source_and_surface_mapping",
+  "results": [
+    {
+      "track": "track-a-zap",
+      "slug": "zap-cometh",
+      "address": "0x872c9DCE4B107042933AFD51E8A704631f7EE076",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-quickswap",
+      "address": "0x540A9f99bB730631BF243a34B19fd00BA8CF315C",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-dyfn",
+      "address": "0x1A53c6FCa349c23f573CEdd3F8AFE70c02CcEC39",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-apeswap",
+      "address": "0xaAa3477c6b326e2E416Af7506A30F4519bC9960F",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-wault",
+      "address": "0x0EA7b115D96C4dF61B3e7d6757f0050F23492929",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-sushi",
+      "address": "0xf039fe26456901F863c873556f40fb207C6c9C18",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-usdc-must-vault",
+      "address": "0x8a198BCbF313A5565c64A7Ed61FaA413eB4E0931",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-usdc-must-strategy",
+      "address": "0xf6fD90FE8f057a63F0368B0B551D5e52C7Ae821F",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-matic-must-vault",
+      "address": "0x7f6fE34C51d5352A0CF375C0Fbe03bD19eCD8460",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-matic-must-strategy",
+      "address": "0xA338D34c5de06B88197609956a2dEAAfF7Af46c8",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-eth-matic-vault",
+      "address": "0xa5aaE3a55cA356C62b5425AA4bFC212542B17777",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-eth-matic-strategy",
+      "address": "0xb0F9c6FBcfE226EEAD3AE8b019ce4666cE223a78",
+      "source_origin": "pending_manual_fetch",
+      "file_count": 0,
+      "files": [],
+      "analysis": {
+        "contracts": [],
+        "state_mutating_entrypoints": [],
+        "external_sinks": []
+      }
+    }
+  ]
+}
