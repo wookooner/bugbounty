@@ -1,0 +1,1569 @@
+{
+  "id": "2026-11-24-upstream-surface",
+  "date": "2026-11-24",
+  "target": "beefyfinance",
+  "onchain_targets": [
+    {
+      "track": "track-a-zap",
+      "slug": "zap-cometh",
+      "address": "0x872c9DCE4B107042933AFD51E8A704631f7EE076",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-quickswap",
+      "address": "0x540A9f99bB730631BF243a34B19fd00BA8CF315C",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-dyfn",
+      "address": "0x1A53c6FCa349c23f573CEdd3F8AFE70c02CcEC39",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-apeswap",
+      "address": "0xaAa3477c6b326e2E416Af7506A30F4519bC9960F",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-wault",
+      "address": "0x0EA7b115D96C4dF61B3e7d6757f0050F23492929",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-a-zap",
+      "slug": "zap-sushi",
+      "address": "0xf039fe26456901F863c873556f40fb207C6c9C18",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-usdc-must-vault",
+      "address": "0x8a198BCbF313A5565c64A7Ed61FaA413eB4E0931",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-usdc-must-strategy",
+      "address": "0xf6fD90FE8f057a63F0368B0B551D5e52C7Ae821F",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-matic-must-vault",
+      "address": "0x7f6fE34C51d5352A0CF375C0Fbe03bD19eCD8460",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-matic-must-strategy",
+      "address": "0xA338D34c5de06B88197609956a2dEAAfF7Af46c8",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-vault",
+      "slug": "cometh-eth-matic-vault",
+      "address": "0xa5aaE3a55cA356C62b5425AA4bFC212542B17777",
+      "polygon_runtime_bytes": -1
+    },
+    {
+      "track": "track-b-strategy",
+      "slug": "cometh-eth-matic-strategy",
+      "address": "0xb0F9c6FBcfE226EEAD3AE8b019ce4666cE223a78",
+      "polygon_runtime_bytes": -1
+    }
+  ],
+  "upstream_files_count": 38,
+  "upstream_analysis": [
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/BIFI/interfaces/beefy/IBeefyVaultConcLiq.sol",
+      "lines": 15,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/BIFI/vaults/BeefyVaultV7.sol",
+      "lines": 404,
+      "entrypoints": [
+        {
+          "function": "initialize",
+          "params": "IStrategyV7 _strategy, string memory _name, string memory _symbol, uint256 _approvalDelay",
+          "qualifiers": "public initializer",
+          "line": 89
+        },
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 183
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 199
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 241
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 259
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 277
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 321
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 355
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 391
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/BIFI/vaults/BeefyVaultV7Factory.sol",
+      "lines": 39,
+      "entrypoints": [
+        {
+          "function": "cloneVault",
+          "params": "",
+          "qualifiers": "external returns (BeefyVaultV7)",
+          "line": 29
+        },
+        {
+          "function": "cloneContract",
+          "params": "address implementation",
+          "qualifiers": "public returns (address)",
+          "line": 34
+        }
+      ],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/BIFI/vaults/BeefyVaultV7Native.sol",
+      "lines": 257,
+      "entrypoints": [
+        {
+          "function": "initialize",
+          "params": "IStrategyV7 _strategy, string memory _name, string memory _symbol, uint256 _approvalDelay",
+          "qualifiers": "public initializer",
+          "line": 46
+        },
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 93
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 101
+        },
+        {
+          "function": "depositBNB",
+          "params": "",
+          "qualifiers": "public payable nonReentrant",
+          "line": 122
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 144
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 153
+        },
+        {
+          "function": "withdrawAllBNB",
+          "params": "",
+          "qualifiers": "external",
+          "line": 160
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 169
+        },
+        {
+          "function": "withdrawBNB",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 191
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 214
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 231
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 249
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/infra/FlatBeefyZap.sol",
+      "lines": 998,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 842
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 850
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 859
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 878
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "addLiquidityETH",
+        "approve",
+        "getReserves",
+        "removeLiquidity",
+        "removeLiquidityETH",
+        "removeLiquidityETHSupportingFeeOnTransferTokens",
+        "removeLiquidityETHWithPermit",
+        "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens",
+        "removeLiquidityWithPermit",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactETHForTokens",
+        "swapExactETHForTokensSupportingFeeOnTransferTokens",
+        "swapExactTokensForETH",
+        "swapExactTokensForETHSupportingFeeOnTransferTokens",
+        "swapExactTokensForTokens",
+        "swapExactTokensForTokensSupportingFeeOnTransferTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/interfaces/gmx/IBeefyVault.sol",
+      "lines": 12,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/keepers/interfaces/IBeefyVault.sol",
+      "lines": 26,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/Cake/StratManagerCake.sol",
+      "lines": 82,
+      "entrypoints": [
+        {
+          "function": "setKeeper",
+          "params": "address _keeper",
+          "qualifiers": "external onlyManager",
+          "line": 49
+        },
+        {
+          "function": "setUnirouter",
+          "params": "address _unirouter",
+          "qualifiers": "external onlyOwner",
+          "line": 57
+        },
+        {
+          "function": "setVault",
+          "params": "address _vault",
+          "qualifiers": "external onlyOwner",
+          "line": 65
+        },
+        {
+          "function": "setBeefyFeeRecipient",
+          "params": "address _beefyFeeRecipient",
+          "qualifiers": "external onlyOwner",
+          "line": 73
+        },
+        {
+          "function": "beforeDeposit",
+          "params": "",
+          "qualifiers": "external virtual",
+          "line": 81
+        }
+      ],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/Cometh/StrategyMultiRewardsPolygonLP.sol",
+      "lines": 442,
+      "entrypoints": [
+        {
+          "function": "deposit",
+          "params": "",
+          "qualifiers": "public whenNotPaused",
+          "line": 159
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _amount",
+          "qualifiers": "external",
+          "line": 175
+        },
+        {
+          "function": "harvest",
+          "params": "",
+          "qualifiers": "external whenNotPaused",
+          "line": 221
+        },
+        {
+          "function": "retireStrat",
+          "params": "",
+          "qualifiers": "external",
+          "line": 345
+        },
+        {
+          "function": "panic",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 365
+        },
+        {
+          "function": "pause",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 375
+        },
+        {
+          "function": "unpause",
+          "params": "",
+          "qualifiers": "external onlyManager",
+          "line": 387
+        }
+      ],
+      "sinks": [
+        "addLiquidity",
+        "safeApprove",
+        "safeTransfer",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/Cometh/StrategyRewardPoolPolygonLP.sol",
+      "lines": 420,
+      "entrypoints": [
+        {
+          "function": "deposit",
+          "params": "",
+          "qualifiers": "public whenNotPaused",
+          "line": 147
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _amount",
+          "qualifiers": "external",
+          "line": 163
+        },
+        {
+          "function": "harvest",
+          "params": "",
+          "qualifiers": "external whenNotPaused",
+          "line": 209
+        },
+        {
+          "function": "retireStrat",
+          "params": "",
+          "qualifiers": "external",
+          "line": 327
+        },
+        {
+          "function": "panic",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 347
+        },
+        {
+          "function": "pause",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 357
+        },
+        {
+          "function": "unpause",
+          "params": "",
+          "qualifiers": "external onlyManager",
+          "line": 369
+        }
+      ],
+      "sinks": [
+        "addLiquidity",
+        "safeApprove",
+        "safeTransfer",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/Common/StratManager.sol",
+      "lines": 96,
+      "entrypoints": [
+        {
+          "function": "setKeeper",
+          "params": "address _keeper",
+          "qualifiers": "external onlyManager",
+          "line": 54
+        },
+        {
+          "function": "setStrategist",
+          "params": "address _strategist",
+          "qualifiers": "external",
+          "line": 62
+        },
+        {
+          "function": "setUnirouter",
+          "params": "address _unirouter",
+          "qualifiers": "external onlyOwner",
+          "line": 71
+        },
+        {
+          "function": "setVault",
+          "params": "address _vault",
+          "qualifiers": "external onlyOwner",
+          "line": 79
+        },
+        {
+          "function": "setBeefyFeeRecipient",
+          "params": "address _beefyFeeRecipient",
+          "qualifiers": "external onlyOwner",
+          "line": 87
+        },
+        {
+          "function": "beforeDeposit",
+          "params": "",
+          "qualifiers": "external virtual",
+          "line": 95
+        }
+      ],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/Curve/ConicZap.sol",
+      "lines": 132,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "IBeefyVault beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 38
+        },
+        {
+          "function": "beefIn",
+          "params": "IBeefyVault beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 46
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "IBeefyVault beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 86
+        }
+      ],
+      "sinks": [
+        ".call",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/strategies/degens/StrategyPolyzapLP.sol",
+      "lines": 218,
+      "entrypoints": [
+        {
+          "function": "deposit",
+          "params": "",
+          "qualifiers": "public whenNotPaused",
+          "line": 71
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _amount",
+          "qualifiers": "external",
+          "line": 86
+        },
+        {
+          "function": "harvest",
+          "params": "",
+          "qualifiers": "external whenNotPaused",
+          "line": 109
+        },
+        {
+          "function": "retireStrat",
+          "params": "",
+          "qualifiers": "external",
+          "line": 172
+        },
+        {
+          "function": "panic",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 182
+        },
+        {
+          "function": "pause",
+          "params": "",
+          "qualifiers": "public onlyManager",
+          "line": 187
+        },
+        {
+          "function": "unpause",
+          "params": "",
+          "qualifiers": "external onlyManager",
+          "line": 193
+        }
+      ],
+      "sinks": [
+        "addLiquidity",
+        "safeApprove",
+        "safeTransfer",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultBNB.sol",
+      "lines": 250,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 95
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 103
+        },
+        {
+          "function": "depositBNB",
+          "params": "",
+          "qualifiers": "public payable",
+          "line": 126
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 150
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 159
+        },
+        {
+          "function": "withdrawAllBNB",
+          "params": "",
+          "qualifiers": "external",
+          "line": 166
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 175
+        },
+        {
+          "function": "withdrawBNB",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 197
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 222
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 238
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultCapped.sol",
+      "lines": 221,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 100
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 108
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 131
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 140
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 149
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 171
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 186
+        },
+        {
+          "function": "increaseDepositCap",
+          "params": "uint256 _depositCap",
+          "qualifiers": "external onlyOwner",
+          "line": 204
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 215
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV2.sol",
+      "lines": 193,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 96
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 104
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 125
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 134
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 143
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 165
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 181
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV3.sol",
+      "lines": 193,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 96
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 104
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 125
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 134
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 143
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 165
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 180
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV4.sol",
+      "lines": 193,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 96
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 104
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 125
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 134
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 143
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 165
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 180
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV5.sol",
+      "lines": 202,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 94
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public",
+          "line": 102
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 123
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 132
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 141
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 163
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 178
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 196
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV6.sol",
+      "lines": 203,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 94
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 102
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 123
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 132
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 141
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 163
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 179
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 197
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV6Matic.sol",
+      "lines": 256,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 93
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 101
+        },
+        {
+          "function": "depositBNB",
+          "params": "",
+          "qualifiers": "public payable",
+          "line": 122
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 144
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 153
+        },
+        {
+          "function": "withdrawAllBNB",
+          "params": "",
+          "qualifiers": "external",
+          "line": 160
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 169
+        },
+        {
+          "function": "withdrawBNB",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 191
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 214
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 230
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 248
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultV6Native.sol",
+      "lines": 258,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 95
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 103
+        },
+        {
+          "function": "depositBNB",
+          "params": "",
+          "qualifiers": "public payable",
+          "line": 124
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 146
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 155
+        },
+        {
+          "function": "withdrawAllBNB",
+          "params": "",
+          "qualifiers": "external",
+          "line": 162
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 171
+        },
+        {
+          "function": "withdrawBNB",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 193
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 216
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 232
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 250
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/vaults/BeefyVaultv6Moonpot.sol",
+      "lines": 228,
+      "entrypoints": [
+        {
+          "function": "depositAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 105
+        },
+        {
+          "function": "deposit",
+          "params": "uint _amount",
+          "qualifiers": "public nonReentrant",
+          "line": 113
+        },
+        {
+          "function": "earn",
+          "params": "",
+          "qualifiers": "public",
+          "line": 137
+        },
+        {
+          "function": "withdrawAll",
+          "params": "",
+          "qualifiers": "external",
+          "line": 146
+        },
+        {
+          "function": "withdraw",
+          "params": "uint256 _shares",
+          "qualifiers": "public",
+          "line": 155
+        },
+        {
+          "function": "proposeStrat",
+          "params": "address _implementation",
+          "qualifiers": "public onlyOwner",
+          "line": 177
+        },
+        {
+          "function": "upgradeStrat",
+          "params": "",
+          "qualifiers": "public onlyOwner",
+          "line": 193
+        },
+        {
+          "function": "setOnlyMoonpot",
+          "params": "bool _onlyMoonpot",
+          "qualifiers": "external onlyOwner",
+          "line": 207
+        },
+        {
+          "function": "setMoonpot",
+          "params": "address _moonpot, address _moonpotYieldSource",
+          "qualifiers": "external onlyOwner",
+          "line": 211
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token",
+          "qualifiers": "external onlyOwner",
+          "line": 222
+        }
+      ],
+      "sinks": [
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyPairFeeDataSource.sol",
+      "lines": 47,
+      "entrypoints": [
+        {
+          "function": "setUpAFactory",
+          "params": "address _factory, uint256 _rootKInteger, uint256 _rootKLastInteger",
+          "qualifiers": "external onlyOwner",
+          "line": 31
+        },
+        {
+          "function": "setUpASolidFactory",
+          "params": "address _factory",
+          "qualifiers": "external onlyOwner",
+          "line": 41
+        }
+      ],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyUniV2ZapSolidly.sol",
+      "lines": 953,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 779
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 787
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 796
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 815
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "addLiquidityETH",
+        "approve",
+        "getReserves",
+        "removeLiquidity",
+        "removeLiquidityETH",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactTokensForTokensSimple"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyVelodromeV2Zap.sol",
+      "lines": 221,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 33
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 41
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 50
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 69
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "getReserves",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyZapKyber.sol",
+      "lines": 273,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, bytes memory token0, bytes memory token1",
+          "qualifiers": "external payable",
+          "line": 53
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, address inputToken, uint256 tokenInAmount, bytes memory token0, bytes memory token1",
+          "qualifiers": "public",
+          "line": 60
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 69
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, bytes memory dataToken0, bytes memory dataToken1",
+          "qualifiers": "external",
+          "line": 87
+        },
+        {
+          "function": "beefOutAndReInvest",
+          "params": "address fromVault, address toVault, uint256 mooTokenAmount, bytes memory token0ToFrom, bytes memory token1ToFrom",
+          "qualifiers": "external",
+          "line": 112
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "delegatecall",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyZapMdex.sol",
+      "lines": 214,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 58
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 66
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 75
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 94
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "getReserves",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyZapOneInch.sol",
+      "lines": 325,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address _beefyVault, bytes calldata _token0, bytes calldata _token1, WantType _type",
+          "qualifiers": "external payable",
+          "line": 49
+        },
+        {
+          "function": "beefIn",
+          "params": "address _beefyVault, address _inputToken, uint256 _tokenInAmount, bytes calldata _token0, bytes calldata _token1, WantType _type",
+          "qualifiers": "public",
+          "line": 57
+        },
+        {
+          "function": "beefOut",
+          "params": "address _beefyVault, uint256 _withdrawAmount",
+          "qualifiers": "external",
+          "line": 65
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address _beefyVault, uint256 _withdrawAmount, address _desiredToken, bytes calldata _dataToken0, bytes calldata _dataToken1, WantType _type",
+          "qualifiers": "external",
+          "line": 70
+        },
+        {
+          "function": "beefOutAndReInvest",
+          "params": "address _fromMooVault, address _toMooVault, uint256 _mooTokenAmount, bytes calldata _token0ToFrom, bytes calldata _token1ToFrom, WantType _fromType, WantType _toType",
+          "qualifiers": "external",
+          "line": 110
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "delegatecall",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/BeefyZapSolidlyDyst.sol",
+      "lines": 237,
+      "entrypoints": [
+        {
+          "function": "beefInETH",
+          "params": "address beefyVault, uint256 tokenAmountOutMin",
+          "qualifiers": "external payable",
+          "line": 60
+        },
+        {
+          "function": "beefIn",
+          "params": "address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount",
+          "qualifiers": "external",
+          "line": 68
+        },
+        {
+          "function": "beefOut",
+          "params": "address beefyVault, uint256 withdrawAmount",
+          "qualifiers": "external",
+          "line": 77
+        },
+        {
+          "function": "beefOutAndSwap",
+          "params": "address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin",
+          "qualifiers": "external",
+          "line": 96
+        }
+      ],
+      "sinks": [
+        ".call",
+        "addLiquidity",
+        "getReserves",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactTokensForTokensSimple"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/IBeefyDataSource.sol",
+      "lines": 13,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/ZapBeFtmOneInch.sol",
+      "lines": 95,
+      "entrypoints": [
+        {
+          "function": "depositNative",
+          "params": "bytes memory _data, bool _shouldMint",
+          "qualifiers": "external payable",
+          "line": 40
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token, bool _native",
+          "qualifiers": "external onlyOwner",
+          "line": 83
+        }
+      ],
+      "sinks": [
+        ".call",
+        "delegatecall",
+        "safeApprove",
+        "safeTransfer"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/ZapBeVelo.sol",
+      "lines": 64,
+      "entrypoints": [
+        {
+          "function": "deposit",
+          "params": "uint256 _amount",
+          "qualifiers": "external",
+          "line": 38
+        },
+        {
+          "function": "inCaseTokensGetStuck",
+          "params": "address _token, bool _native",
+          "qualifiers": "external onlyOwner",
+          "line": 54
+        }
+      ],
+      "sinks": [
+        ".call",
+        "safeApprove",
+        "safeTransfer",
+        "safeTransferFrom",
+        "swapExactTokensForTokens"
+      ]
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/libs/Babylonian.sol",
+      "lines": 35,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/zapInterfaces/IBeefyVault.sol",
+      "lines": 14,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/zapInterfaces/IERC20Extended.sol",
+      "lines": 7,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/zapInterfaces/IStrategy.sol",
+      "lines": 7,
+      "entrypoints": [],
+      "sinks": []
+    },
+    {
+      "file": "contracts/upstream-beefy/beefy-contracts/contracts/archive/zaps/zapInterfaces/IWETH.sol",
+      "lines": 8,
+      "entrypoints": [],
+      "sinks": []
+    }
+  ]
+}
