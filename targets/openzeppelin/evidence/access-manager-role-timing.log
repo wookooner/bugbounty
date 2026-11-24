@@ -1,0 +1,83 @@
+Compiled 11 Solidity files successfully (evm target: osaka).
+
+
+  AccessManager
+    getters
+      #canCall
+        when the manager is open
+          when the call does not come from the manager (msg.sender != manager)
+            when the function requires the caller to be granted with a role other than PUBLIC_ROLE
+              when the required role is granted to the caller
+                when role granting is delayed
+                  when caller has an execution delay
+                    when grant delay has not taken effect yet
+                      ✔ should return false and no execution delay
+                    when grant delay has taken effect
+                      when operation is scheduled
+                        when operation is not ready for execution
+                          ✔ should return false and execution delay
+                        when operation is ready for execution
+                          ✔ should return false and execution delay
+                        when operation has expired
+                          ✔ should return false and execution delay
+                      when operation is not scheduled
+                        ✔ should return false and execution delay
+                  when caller has no execution delay
+                    when grant delay has not taken effect yet
+                      ✔ should return false and no execution delay
+                    when grant delay has taken effect
+                      ✔ should return true and no execution delay
+                when role granting is not delayed
+                  when caller has an execution delay
+                    ✔ should return false and execution delay
+                  when caller has no execution delay
+                    ✔ should return true and no execution delay
+              when role is not granted
+                ✔ should return false and no execution delay
+      #getAccess
+        when the required role is granted to the caller
+          when role granting is delayed
+            when caller has an execution delay
+              when grant delay has not taken effect yet
+                ✔ role is not in effect and execution delay is set
+              when grant delay has taken effect
+                ✔ access has role in effect and execution delay is set
+            when caller has no execution delay
+              when grant delay has not taken effect yet
+                ✔ access has role not in effect without execution delay
+              when grant delay has taken effect
+                ✔ role is in effect without execution delay
+          when role granting is not delayed
+            when caller has an execution delay
+              ✔ access has role in effect and execution delay is set
+            when caller has no execution delay
+              ✔ access has role in effect without execution delay
+        when role is not granted
+          ✔ has empty access
+      #hasRole
+        when the function requires the caller to be granted with the PUBLIC_ROLE
+          ✔ has PUBLIC role
+        when the function requires the caller to be granted with a role other than PUBLIC_ROLE
+          when the required role is granted to the caller
+            when role granting is delayed
+              when caller has an execution delay
+                when grant delay has not taken effect yet
+                  ✔ does not have role but execution delay
+                when grant delay has taken effect
+                  ✔ has role and execution delay
+              when caller has no execution delay
+                when grant delay has not taken effect yet
+                  ✔ does not have role nor execution delay
+                when grant delay has taken effect
+                  ✔ has role and no execution delay
+            when role granting is not delayed
+              when caller has an execution delay
+                ✔ has role and execution delay
+              when caller has no execution delay
+                ✔ has role and no execution delay
+          when role is not granted
+            ✔ has no role and no execution delay
+
+
+  25 passing (2s)
+

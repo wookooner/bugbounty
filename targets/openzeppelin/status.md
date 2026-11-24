@@ -10,4 +10,5 @@
 - 세션 시작 시 [공식 자료](README.md)를 확인한다.
 - `AccessControlEnumerable`의 역할 목록 동기화를 검토했다. 원본 테스트 37개 통과. [검토 기록](research_logs/2026-11-24-access-control-enumerable.md)
 - 역할 목록 조회 비용을 로컬에서 측정했다. [측정 기록](research_logs/2026-11-24-access-control-enumerable-gas.md)
-- **다음 단계**는 AccessManager의 역할 활성화 시점과 실행 지연 검토다.
+- AccessManager의 역할 활성화와 실행 지연 조회를 검토했다. 원본 테스트 25개 통과. [검토 기록](research_logs/2026-11-24-access-manager-role-timing.md)
+- **다음 단계**는 AccessManaged의 제한 함수에서 즉시 허용과 예약 작업 소비를 확인하는 것이다.

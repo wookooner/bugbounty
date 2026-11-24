@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-ACCESS-MANAGER-ROLE-TIMING",
+  "date": "2026-11-24",
+  "target": {
+    "id": "TGT-0001",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "modules": [
+      "AccessManager"
+    ]
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "grant-activation",
+      "expected": "활성화 시점부터 해당 역할을 보유한 것으로 판단한다.",
+      "observed": "getAccess는 활성화 시점과 설정된 실행 지연을 노출했다. hasRole은 시점 전에는 false, 시점에 도달하면 true였다.",
+      "evidence": [
+        {
+          "path": "contracts/access/manager/AccessManager.sol",
+          "lines": [
+            204,
+            226
+          ]
+        },
+        {
+          "path": "contracts/access/manager/AccessManager.sol",
+          "lines": [
+            286,
+            292
+          ]
+        },
+        {
+          "path": "test/access/manager/AccessManager.test.js",
+          "lines": [
+            481,
+            675
+          ]
+        }
+      ]
+    },
+    {
+      "id": "immediate-vs-delayed",
+      "expected": "일반 역할 판정은 활성 여부와 현재 실행 지연을 함께 사용한다.",
+      "observed": "canCall에서 활성 역할 없음은 (false, 0), 활성 및 지연 없음은 (true, 0), 활성 및 지연 있음은 (false, delay)였다.",
+      "evidence": [
+        {
+          "path": "contracts/access/manager/AccessManager.sol",
+          "lines": [
+            156,
+            160
+          ]
+        },
+        {
+          "path": "test/access/manager/AccessManager.test.js",
+          "lines": [
+            190,
+            334
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "network": "hardhat_local",
+    "hardhat_version": "2.28.5",
+    "solc_version": "0.8.35",
+    "evm_version": "osaka",
+    "test_file": "test/access/manager/AccessManager.test.js",
+    "filter": "getters #(getAccess|hasRole)|(should return (false|true) and (no )?execution delay)$",
+    "passed": 25,
+    "failed": 0,
+    "log": "evidence/access-manager-role-timing.log"
+  },
+  "hypotheses": [],
+  "findings": [],
+  "open_items": [
+    "선택된 조회·권한 판정 테스트가 검증 범위다. 예약 작업의 실제 실행 및 소비, setAuthority 별도 경로, 특정 운영 배포는 이번 범위에서 미확인이다."
+  ],
+  "next_action": "AccessManaged의 restricted 경로에서 즉시 허용과 지연된 정상 작업의 예약·소비 동작을 기존 로컬 테스트로 확인한다."
+}
