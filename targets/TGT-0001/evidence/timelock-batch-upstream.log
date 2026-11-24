@@ -1,0 +1,27 @@
+
+
+  TimelockController
+    methods
+      simple
+        execute
+          with scheduled operation
+            ✔ revert if execution comes too early 1/2
+            ✔ revert if execution comes too early 2/2
+            on time
+              ✔ executor can reveal
+              ✔ prevent non-executor from revealing
+      batch
+        execute
+          with scheduled operation
+            ✔ revert if execution comes too early 1/2
+            ✔ revert if execution comes too early 2/2
+            on time
+              ✔ executor can reveal (145ms)
+              ✔ prevent non-executor from revealing
+      cancel
+        ✔ canceller can cancel
+        ✔ cannot cancel invalid operation
+
+
+  10 passing (1s)
+

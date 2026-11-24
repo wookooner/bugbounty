@@ -1,0 +1,10 @@
+
+
+  TimelockController batch behavior
+    ✔ executes an authorized public batch exactly at its scheduled timestamp (1484ms)
+    ✔ clears a cancelled batch reservation (71ms)
+    ✔ keeps the batch ready and rolls back effects when a receiver rejects a call (153ms)
+
+
+  3 passing (2s)
+
