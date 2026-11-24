@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "record_id": "FIL-2026-11-24-LOTUS-MINER-INTAKE",
+  "date": "2026-11-24",
+  "target": {
+    "id": "TGT-0002",
+    "repository": "https://github.com/filecoin-project/lotus",
+    "version": "v1.39.1",
+    "commit": "6a8b57bf415c298b8908013df3ef3ea1a1a977dc",
+    "paths": [
+      "miner/miner.go",
+      "miner/testminer.go",
+      "miner/warmup.go"
+    ]
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/filecoin/information/",
+    "https://immunefi.com/bug-bounty/filecoin/scope/",
+    "https://immunefi.com/bug-bounty/filecoin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "scope-and-source",
+      "observed": "공식 범위에 Lotus miner가 개별 등록돼 있고 저장소의 miner 경로로 연결된다. 안정 릴리스 태그가 고정 SHA를 가리켰다."
+    },
+    {
+      "id": "miner-data-flow",
+      "observed": "ChainHead에서 채굴 기준을 얻고, 라운드 정보와 메시지 목록을 읽어 블록 템플릿을 생성한 뒤 FullNode에 블록을 전달한다.",
+      "evidence": [
+        {
+          "path": "miner/miner.go",
+          "lines": [
+            363,
+            371
+          ]
+        },
+        {
+          "path": "miner/miner.go",
+          "lines": [
+            405,
+            418
+          ]
+        },
+        {
+          "path": "miner/miner.go",
+          "lines": [
+            490,
+            490
+          ]
+        },
+        {
+          "path": "miner/miner.go",
+          "lines": [
+            559,
+            559
+          ]
+        },
+        {
+          "path": "miner/miner.go",
+          "lines": [
+            682,
+            697
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "methods": [
+      "official_scope_review",
+      "git_tag_resolution",
+      "static_source_review"
+    ],
+    "tests_run": 0,
+    "devnet_started": false,
+    "audit_kit_reference_commit": "7bf5a60f27447f678755a9045c26bf94afa8e786"
+  },
+  "findings": [],
+  "open_items": [
+    "Audit Kit가 사용하는 Lotus 버전과 고정 릴리스 호환성 미확인",
+    "Go 툴체인 및 devnet 실행 요건 미확인"
+  ],
+  "next_action": "공식 Audit Kit가 사용하는 Lotus 버전과 로컬 실행 요건을 확인한다. 고정 릴리스와 호환되는 경우 격리된 devnet에서 정상 기동과 체인 높이 증가를 검증한다."
+}
