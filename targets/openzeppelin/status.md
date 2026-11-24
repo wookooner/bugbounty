@@ -8,3 +8,4 @@
 - 집계 데이터와 검증 증거는 각각 [research_logs](research_logs/)와 [evidence](evidence/)에 있다.
 - 후속 검토 순서와 완료 기준은 [남은 검토 계획](review-plan.md)에 있다.
 - 세션 시작 시 [공식 자료](README.md)를 확인한다.
+- `AccessControlEnumerable`의 역할 목록 동기화를 검토했다. 원본 테스트 37개 통과. [검토 기록](research_logs/2026-11-24-access-control-enumerable.md)

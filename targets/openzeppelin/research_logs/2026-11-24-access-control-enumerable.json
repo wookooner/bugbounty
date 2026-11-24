@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-ACCESS-CONTROL-ENUMERABLE",
+  "date": "2026-11-24",
+  "target": {
+    "id": "TGT-0001",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "modules": [
+      "AccessControlEnumerable"
+    ]
+  },
+  "scope_sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/"
+  ],
+  "checks": [
+    {
+      "id": "role-list-sync",
+      "expected": "부여·회수 후 역할 목록과 조회 결과가 일치한다.",
+      "observed": "원본 테스트에서 세 계정 중 회수된 한 계정이 빠지고 수·인덱스·전체 목록이 일치했다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlEnumerable.sol",
+          "lines": [
+            36,
+            79
+          ]
+        },
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            235,
+            252
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "renounced-role-removal",
+      "expected": "역할 포기 후 목록에서 제거된다.",
+      "observed": "보유자 수 0 → 1 → 0 확인.",
+      "evidence": [
+        {
+          "path": "test/access/AccessControl.behavior.js",
+          "lines": [
+            254,
+            260
+          ]
+        }
+      ],
+      "status": "confirmed_by_existing_tests"
+    },
+    {
+      "id": "enumeration-consumer-assumptions",
+      "observed": "순서는 가변적이고 같은 블록의 조회가 권장된다. 전체 조회는 전체 집합을 메모리로 복사한다.",
+      "evidence": [
+        {
+          "path": "contracts/access/extensions/AccessControlEnumerable.sol",
+          "lines": [
+            24,
+            58
+          ]
+        }
+      ],
+      "status": "observed_in_source"
+    }
+  ],
+  "verification": {
+    "network": "hardhat_local",
+    "test_file": "test/access/extensions/AccessControlEnumerable.test.js",
+    "passed": 37,
+    "failed": 0,
+    "log": "evidence/access-control-enumerable-test.log"
+  },
+  "findings": [],
+  "open_items": [
+    "운영 배포의 체인·주소 미확인",
+    "통합 계약의 조회 방식과 대규모 목록 가스 비용은 미검증"
+  ]
+}
