@@ -1,0 +1,9 @@
+
+
+  AccessControlEnumerable read costs
+GAS_ESTIMATES [{"members":0,"full_list":24501,"count":24153,"at_index_zero":null},{"members":1,"full_list":26826,"count":24153,"at_index_zero":26547},{"members":8,"full_list":42619,"count":24153,"at_index_zero":26547},{"members":32,"full_list":96771,"count":24153,"at_index_zero":26547}]
+    ✔ measures full-list, count, and indexed reads at four list sizes (977ms)
+
+
+  1 passing (980ms)
+

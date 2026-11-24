@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-ENUMERABLE-GAS",
+  "date": "2026-11-24",
+  "target": {
+    "id": "TGT-0001",
+    "module": "AccessControlEnumerable",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3"
+  },
+  "check": {
+    "expected": "전체 목록 조회의 비용은 목록 크기에 따라 증가한다.",
+    "observed": "표본 0, 1, 8, 32개에서 전체 조회 추정치가 증가했다. 개수와 첫 인덱스 조회는 유효한 표본에서 일정했다.",
+    "source": {
+      "path": "contracts/access/extensions/AccessControlEnumerable.sol",
+      "lines": [
+        24,
+        58
+      ]
+    }
+  },
+  "verification": {
+    "environment": "local Hardhat 2.28.5",
+    "compiler": "Solidity 0.8.35, optimizer runs 200, Osaka",
+    "method": "eth_estimateGas on generated local wrapper",
+    "passed": 1,
+    "failed": 0,
+    "rows": [
+      {
+        "members": 0,
+        "full_list": 24501,
+        "count": 24153,
+        "at_index_zero": null
+      },
+      {
+        "members": 1,
+        "full_list": 26826,
+        "count": 24153,
+        "at_index_zero": 26547
+      },
+      {
+        "members": 8,
+        "full_list": 42619,
+        "count": 24153,
+        "at_index_zero": 26547
+      },
+      {
+        "members": 32,
+        "full_list": 96771,
+        "count": 24153,
+        "at_index_zero": 26547
+      }
+    ],
+    "log": "evidence/access-control-enumerable-gas.log",
+    "test": "evidence/checks/access-control-enumerable-gas.test.js"
+  },
+  "findings": [],
+  "open_items": [
+    "실제 통합 계약의 쓰기 경로 및 운영 블록 한도 미검증",
+    "Timelock 운영 배포의 체인과 주소 미확인"
+  ],
+  "next_action": "같은 고정 릴리스의 AccessManager에서 역할 활성화 시점과 권한 판정에 사용하는 실행 지연을 소스와 기존 로컬 테스트로 확인한다."
+}
