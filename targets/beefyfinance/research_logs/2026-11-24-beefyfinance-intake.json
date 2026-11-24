@@ -1,0 +1,42 @@
+{
+  "id": "2026-11-24-beefyfinance-intake",
+  "date": "2026-11-24",
+  "target": "beefyfinance",
+  "phase": "intake",
+  "status": "completed",
+  "program": {
+    "url": "https://immunefi.com/bug-bounty/beefyfinance/information/",
+    "adjudication": "Primacy of Rules",
+    "max_bounty_usd": 75000,
+    "kyc_required": false,
+    "poc_required_all_severities": true,
+    "fix_suggestion_required": true,
+    "testing_rule": "local_fork_only"
+  },
+  "priority_queue": [
+    {
+      "track": "Track-A-Zap",
+      "contracts": [
+        "0x872c9DCE4B107042933AFD51E8A704631f7EE076",
+        "0x540A9f99bB730631BF243a34B19fd00BA8CF315C",
+        "0x1A53c6FCa349c23f573CEdd3F8AFE70c02CcEC39",
+        "0xaAa3477c6b326e2E416Af7506A30F4519bC9960F",
+        "0x0EA7b115D96C4dF61B3e7d6757f0050F23492929",
+        "0xf039fe26456901F863c873556f40fb207C6c9C18"
+      ],
+      "focus": ["slippage_mev", "dust_refund", "arbitrary_call_approval"]
+    },
+    {
+      "track": "Track-B-Vault-Strategy",
+      "contracts": [
+        "0x8a198BCbF313A5565c64A7Ed61FaA413eB4E0931",
+        "0xf6fD90FE8f057a63F0368B0B551D5e52C7Ae821F",
+        "0x7f6fE34C51d5352A0CF375C0Fbe03bD19eCD8460",
+        "0xA338D34c5de06B88197609956a2dEAAfF7Af46c8",
+        "0xa5aaE3a55cA356C62b5425AA4bFC212542B17777",
+        "0xb0F9c6FBcfE226EEAD3AE8b019ce4666cE223a78"
+      ],
+      "focus": ["withdrawal_liveness_invariant", "share_inflation_rounding", "harvest_flashloan_mev"]
+    }
+  ]
+}
