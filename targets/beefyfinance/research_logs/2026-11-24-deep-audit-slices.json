@@ -1,0 +1,1525 @@
+[
+  {
+    "file": "contracts/archive/infra/FlatBeefyZap.sol",
+    "total_lines": 998,
+    "functions": [
+      {
+        "line": 14,
+        "name": "name",
+        "header": "function name() external pure returns (string memory);     function symbol() external pure returns (string memory);     function decimals() external pure returns (uint8);     function totalSupply() external view returns (uint);     function balanceOf(address owner) external view returns (uint);"
+      },
+      {
+        "line": 15,
+        "name": "symbol",
+        "header": "function symbol() external pure returns (string memory);     function decimals() external pure returns (uint8);     function totalSupply() external view returns (uint);     function balanceOf(address owner) external view returns (uint);     function allowance(address owner, address spender) external view returns (uint);"
+      },
+      {
+        "line": 16,
+        "name": "decimals",
+        "header": "function decimals() external pure returns (uint8);     function totalSupply() external view returns (uint);     function balanceOf(address owner) external view returns (uint);     function allowance(address owner, address spender) external view returns (uint);"
+      },
+      {
+        "line": 17,
+        "name": "totalSupply",
+        "header": "function totalSupply() external view returns (uint);     function balanceOf(address owner) external view returns (uint);     function allowance(address owner, address spender) external view returns (uint);      function approve(address spender, uint value) external returns (bool);"
+      },
+      {
+        "line": 18,
+        "name": "balanceOf",
+        "header": "function balanceOf(address owner) external view returns (uint);     function allowance(address owner, address spender) external view returns (uint);      function approve(address spender, uint value) external returns (bool);     function transfer(address to, uint value) external returns (bool);"
+      },
+      {
+        "line": 19,
+        "name": "allowance",
+        "header": "function allowance(address owner, address spender) external view returns (uint);      function approve(address spender, uint value) external returns (bool);     function transfer(address to, uint value) external returns (bool);     function transferFrom(address from, address to, uint value) external returns (bool);"
+      },
+      {
+        "line": 21,
+        "name": "approve",
+        "header": "function approve(address spender, uint value) external returns (bool);     function transfer(address to, uint value) external returns (bool);     function transferFrom(address from, address to, uint value) external returns (bool);      function DOMAIN_SEPARATOR() external view returns (bytes32);"
+      },
+      {
+        "line": 22,
+        "name": "transfer",
+        "header": "function transfer(address to, uint value) external returns (bool);     function transferFrom(address from, address to, uint value) external returns (bool);      function DOMAIN_SEPARATOR() external view returns (bytes32);     function PERMIT_TYPEHASH() external pure returns (bytes32);"
+      },
+      {
+        "line": 23,
+        "name": "transferFrom",
+        "header": "function transferFrom(address from, address to, uint value) external returns (bool);      function DOMAIN_SEPARATOR() external view returns (bytes32);     function PERMIT_TYPEHASH() external pure returns (bytes32);     function nonces(address owner) external view returns (uint);"
+      },
+      {
+        "line": 25,
+        "name": "DOMAIN_SEPARATOR",
+        "header": "function DOMAIN_SEPARATOR() external view returns (bytes32);     function PERMIT_TYPEHASH() external pure returns (bytes32);     function nonces(address owner) external view returns (uint);      function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;"
+      },
+      {
+        "line": 26,
+        "name": "PERMIT_TYPEHASH",
+        "header": "function PERMIT_TYPEHASH() external pure returns (bytes32);     function nonces(address owner) external view returns (uint);      function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;"
+      },
+      {
+        "line": 27,
+        "name": "nonces",
+        "header": "function nonces(address owner) external view returns (uint);      function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;      event Mint(address indexed sender, uint amount0, uint amount1);"
+      },
+      {
+        "line": 29,
+        "name": "permit",
+        "header": "function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;      event Mint(address indexed sender, uint amount0, uint amount1);     event Burn(address indexed sender, uint amount0, uint amount1, address indexed to);     event Swap("
+      },
+      {
+        "line": 43,
+        "name": "MINIMUM_LIQUIDITY",
+        "header": "function MINIMUM_LIQUIDITY() external pure returns (uint);     function factory() external view returns (address);     function token0() external view returns (address);     function token1() external view returns (address);     function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);"
+      },
+      {
+        "line": 44,
+        "name": "factory",
+        "header": "function factory() external view returns (address);     function token0() external view returns (address);     function token1() external view returns (address);     function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);     function price0CumulativeLast() external view returns (uint);"
+      },
+      {
+        "line": 45,
+        "name": "token0",
+        "header": "function token0() external view returns (address);     function token1() external view returns (address);     function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);     function price0CumulativeLast() external view returns (uint);     function price1CumulativeLast() external view returns (uint);"
+      },
+      {
+        "line": 46,
+        "name": "token1",
+        "header": "function token1() external view returns (address);     function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);     function price0CumulativeLast() external view returns (uint);     function price1CumulativeLast() external view returns (uint);     function kLast() external view returns (uint);"
+      },
+      {
+        "line": 47,
+        "name": "getReserves",
+        "header": "function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);     function price0CumulativeLast() external view returns (uint);     function price1CumulativeLast() external view returns (uint);     function kLast() external view returns (uint);"
+      },
+      {
+        "line": 48,
+        "name": "price0CumulativeLast",
+        "header": "function price0CumulativeLast() external view returns (uint);     function price1CumulativeLast() external view returns (uint);     function kLast() external view returns (uint);      function mint(address to) external returns (uint liquidity);"
+      },
+      {
+        "line": 49,
+        "name": "price1CumulativeLast",
+        "header": "function price1CumulativeLast() external view returns (uint);     function kLast() external view returns (uint);      function mint(address to) external returns (uint liquidity);     function burn(address to) external returns (uint amount0, uint amount1);"
+      },
+      {
+        "line": 50,
+        "name": "kLast",
+        "header": "function kLast() external view returns (uint);      function mint(address to) external returns (uint liquidity);     function burn(address to) external returns (uint amount0, uint amount1);     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;"
+      },
+      {
+        "line": 52,
+        "name": "mint",
+        "header": "function mint(address to) external returns (uint liquidity);     function burn(address to) external returns (uint amount0, uint amount1);     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;     function skim(address to) external;     function sync() external;"
+      },
+      {
+        "line": 53,
+        "name": "burn",
+        "header": "function burn(address to) external returns (uint amount0, uint amount1);     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;     function skim(address to) external;     function sync() external;"
+      },
+      {
+        "line": 54,
+        "name": "swap",
+        "header": "function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;     function skim(address to) external;     function sync() external;      function initialize(address, address) external;"
+      },
+      {
+        "line": 55,
+        "name": "skim",
+        "header": "function skim(address to) external;     function sync() external;      function initialize(address, address) external; }"
+      },
+      {
+        "line": 56,
+        "name": "sync",
+        "header": "function sync() external;      function initialize(address, address) external; }"
+      },
+      {
+        "line": 58,
+        "name": "initialize",
+        "header": "function initialize(address, address) external; }  // File: contracts/BIFI/zap/Babylonian.sol"
+      },
+      {
+        "line": 71,
+        "name": "sqrt",
+        "header": "function sqrt(uint256 x) internal pure returns (uint256) {         if (x == 0) return 0;         // this block is equivalent to r = uint256(1) << (BitMath.mostSignificantBit(x) / 2);         // however that code costs significantly more gas         uint256 xx = x;"
+      },
+      {
+        "line": 128,
+        "name": "totalSupply",
+        "header": "function totalSupply() external view returns (uint256);      /**      * @dev Returns the amount of tokens owned by `account`.      */"
+      },
+      {
+        "line": 133,
+        "name": "balanceOf",
+        "header": "function balanceOf(address account) external view returns (uint256);      /**      * @dev Moves `amount` tokens from the caller's account to `recipient`.      *"
+      },
+      {
+        "line": 142,
+        "name": "transfer",
+        "header": "function transfer(address recipient, uint256 amount) external returns (bool);      /**      * @dev Returns the remaining number of tokens that `spender` will be      * allowed to spend on behalf of `owner` through {transferFrom}. This is"
+      },
+      {
+        "line": 151,
+        "name": "allowance",
+        "header": "function allowance(address owner, address spender) external view returns (uint256);      /**      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.      *"
+      },
+      {
+        "line": 167,
+        "name": "approve",
+        "header": "function approve(address spender, uint256 amount) external returns (bool);      /**      * @dev Moves `amount` tokens from `sender` to `recipient` using the      * allowance mechanism. `amount` is then deducted from the caller's"
+      },
+      {
+        "line": 178,
+        "name": "transferFrom",
+        "header": "function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);      /**      * @dev Emitted when `value` tokens are moved from one account (`from`) to      * another (`to`)."
+      },
+      {
+        "line": 224,
+        "name": "add",
+        "header": "function add(uint256 a, uint256 b) internal pure returns (uint256) {         uint256 c = a + b;         require(c >= a, \"SafeMath: addition overflow\");          return c;"
+      },
+      {
+        "line": 241,
+        "name": "sub",
+        "header": "function sub(uint256 a, uint256 b) internal pure returns (uint256) {         return sub(a, b, \"SafeMath: subtraction overflow\");     }      /**"
+      },
+      {
+        "line": 255,
+        "name": "sub",
+        "header": "function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {         require(b <= a, errorMessage);         uint256 c = a - b;          return c;"
+      },
+      {
+        "line": 272,
+        "name": "mul",
+        "header": "function mul(uint256 a, uint256 b) internal pure returns (uint256) {         // Gas optimization: this is cheaper than requiring 'a' not being zero, but the         // benefit is lost if 'b' is also tested.         // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522         if (a == 0) {"
+      },
+      {
+        "line": 298,
+        "name": "div",
+        "header": "function div(uint256 a, uint256 b) internal pure returns (uint256) {         return div(a, b, \"SafeMath: division by zero\");     }      /**"
+      },
+      {
+        "line": 314,
+        "name": "div",
+        "header": "function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {         require(b > 0, errorMessage);         uint256 c = a / b;         // assert(a == b * c + a % b); // There is no case in which this doesn't hold"
+      },
+      {
+        "line": 334,
+        "name": "mod",
+        "header": "function mod(uint256 a, uint256 b) internal pure returns (uint256) {         return mod(a, b, \"SafeMath: modulo by zero\");     }      /**"
+      },
+      {
+        "line": 350,
+        "name": "mod",
+        "header": "function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {         require(b != 0, errorMessage);         return a % b;     } }"
+      },
+      {
+        "line": 382,
+        "name": "isContract",
+        "header": "function isContract(address account) internal view returns (bool) {         // This method relies on extcodesize, which returns 0 for contracts in         // construction, since the code is only stored at the end of the         // constructor execution."
+      },
+      {
+        "line": 409,
+        "name": "sendValue",
+        "header": "function sendValue(address payable recipient, uint256 amount) internal {         require(address(this).balance >= amount, \"Address: insufficient balance\");          // solhint-disable-next-line avoid-low-level-calls, avoid-call-value         (bool success, ) = recipient.call{ value: amount }(\"\");"
+      },
+      {
+        "line": 435,
+        "name": "functionCall",
+        "header": "function functionCall(address target, bytes memory data) internal returns (bytes memory) {       return functionCall(target, data, \"Address: low-level call failed\");     }      /**"
+      },
+      {
+        "line": 445,
+        "name": "functionCall",
+        "header": "function functionCall(address target, bytes memory data, string memory errorMessage) internal returns (bytes memory) {         return functionCallWithValue(target, data, 0, errorMessage);     }      /**"
+      },
+      {
+        "line": 460,
+        "name": "functionCallWithValue",
+        "header": "function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {         return functionCallWithValue(target, data, value, \"Address: low-level call with value failed\");     }      /**"
+      },
+      {
+        "line": 470,
+        "name": "functionCallWithValue",
+        "header": "function functionCallWithValue(address target, bytes memory data, uint256 value, string memory errorMessage) internal returns (bytes memory) {         require(address(this).balance >= value, \"Address: insufficient balance for call\");         require(isContract(target), \"Address: call to non-contract\");          // solhint-disable-next-line avoid-low-level-calls"
+      },
+      {
+        "line": 485,
+        "name": "functionStaticCall",
+        "header": "function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {         return functionStaticCall(target, data, \"Address: low-level static call failed\");     }      /**"
+      },
+      {
+        "line": 495,
+        "name": "functionStaticCall",
+        "header": "function functionStaticCall(address target, bytes memory data, string memory errorMessage) internal view returns (bytes memory) {         require(isContract(target), \"Address: static call to non-contract\");          // solhint-disable-next-line avoid-low-level-calls         (bool success, bytes memory returndata) = target.staticcall(data);"
+      },
+      {
+        "line": 503,
+        "name": "_verifyCallResult",
+        "header": "function _verifyCallResult(bool success, bytes memory returndata, string memory errorMessage) private pure returns(bytes memory) {         if (success) {             return returndata;         } else {             // Look for revert reason and bubble it up if present"
+      },
+      {
+        "line": 543,
+        "name": "safeTransfer",
+        "header": "function safeTransfer(IERC20 token, address to, uint256 value) internal {         _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));     }      function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {"
+      },
+      {
+        "line": 547,
+        "name": "safeTransferFrom",
+        "header": "function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {         _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));     }      /**"
+      },
+      {
+        "line": 558,
+        "name": "safeApprove",
+        "header": "function safeApprove(IERC20 token, address spender, uint256 value) internal {         // safeApprove should only be called when setting an initial allowance,         // or when resetting it to zero. To increase and decrease it, use         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'         // solhint-disable-next-line max-line-length"
+      },
+      {
+        "line": 569,
+        "name": "safeIncreaseAllowance",
+        "header": "function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {         uint256 newAllowance = token.allowance(address(this), spender).add(value);         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));     }"
+      },
+      {
+        "line": 574,
+        "name": "safeDecreaseAllowance",
+        "header": "function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {         uint256 newAllowance = token.allowance(address(this), spender).sub(value, \"SafeERC20: decreased allowance below zero\");         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));     }"
+      },
+      {
+        "line": 585,
+        "name": "_callOptionalReturn",
+        "header": "function _callOptionalReturn(IERC20 token, bytes memory data) private {         // We need to perform a low level call here, to bypass Solidity's return data size checking mechanism, since         // we're implementing it ourselves. We use {Address.functionCall} to perform this call, which verifies that         // the target address contains contract code and also asserts for success in the low-level call."
+      },
+      {
+        "line": 609,
+        "name": "add",
+        "header": "function add(uint256 x, uint256 y) internal pure returns (uint256 z) {         require((z = x + y) >= x);     }      /// @notice Returns x - y, reverts if underflows"
+      },
+      {
+        "line": 617,
+        "name": "sub",
+        "header": "function sub(uint256 x, uint256 y) internal pure returns (uint256 z) {         require((z = x - y) <= x);     }      /// @notice Returns x * y, reverts if overflows"
+      },
+      {
+        "line": 625,
+        "name": "mul",
+        "header": "function mul(uint256 x, uint256 y) internal pure returns (uint256 z) {         require(x == 0 || (z = x * y) / x == y);     }      /// @notice Returns x + y, reverts if overflows or underflows"
+      },
+      {
+        "line": 633,
+        "name": "add",
+        "header": "function add(int256 x, int256 y) internal pure returns (int256 z) {         require((z = x + y) >= x == (y >= 0));     }      /// @notice Returns x - y, reverts if overflows or underflows"
+      },
+      {
+        "line": 641,
+        "name": "sub",
+        "header": "function sub(int256 x, int256 y) internal pure returns (int256 z) {         require((z = x - y) <= x == (y >= 0));     } }"
+      },
+      {
+        "line": 651,
+        "name": "factory",
+        "header": "function factory() external pure returns (address);     function WETH() external pure returns (address);      function addLiquidity(         address tokenA,"
+      },
+      {
+        "line": 652,
+        "name": "WETH",
+        "header": "function WETH() external pure returns (address);      function addLiquidity(         address tokenA,         address tokenB,"
+      },
+      {
+        "line": 654,
+        "name": "addLiquidity",
+        "header": "function addLiquidity(         address tokenA,         address tokenB,         uint amountADesired,         uint amountBDesired,"
+      },
+      {
+        "line": 664,
+        "name": "addLiquidityETH",
+        "header": "function addLiquidityETH(         address token,         uint amountTokenDesired,         uint amountTokenMin,         uint amountETHMin,"
+      },
+      {
+        "line": 672,
+        "name": "removeLiquidity",
+        "header": "function removeLiquidity(         address tokenA,         address tokenB,         uint liquidity,         uint amountAMin,"
+      },
+      {
+        "line": 681,
+        "name": "removeLiquidityETH",
+        "header": "function removeLiquidityETH(         address token,         uint liquidity,         uint amountTokenMin,         uint amountETHMin,"
+      },
+      {
+        "line": 689,
+        "name": "removeLiquidityWithPermit",
+        "header": "function removeLiquidityWithPermit(         address tokenA,         address tokenB,         uint liquidity,         uint amountAMin,"
+      },
+      {
+        "line": 699,
+        "name": "removeLiquidityETHWithPermit",
+        "header": "function removeLiquidityETHWithPermit(         address token,         uint liquidity,         uint amountTokenMin,         uint amountETHMin,"
+      },
+      {
+        "line": 708,
+        "name": "swapExactTokensForTokens",
+        "header": "function swapExactTokensForTokens(         uint amountIn,         uint amountOutMin,         address[] calldata path,         address to,"
+      },
+      {
+        "line": 715,
+        "name": "swapTokensForExactTokens",
+        "header": "function swapTokensForExactTokens(         uint amountOut,         uint amountInMax,         address[] calldata path,         address to,"
+      },
+      {
+        "line": 722,
+        "name": "swapExactETHForTokens",
+        "header": "function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)         external         payable         returns (uint[] memory amounts);     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)"
+      },
+      {
+        "line": 726,
+        "name": "swapTokensForExactETH",
+        "header": "function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)         external         returns (uint[] memory amounts);     function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)         external"
+      },
+      {
+        "line": 729,
+        "name": "swapExactTokensForETH",
+        "header": "function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)         external         returns (uint[] memory amounts);     function swapETHForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)         external"
+      },
+      {
+        "line": 732,
+        "name": "swapETHForExactTokens",
+        "header": "function swapETHForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)         external         payable         returns (uint[] memory amounts);"
+      },
+      {
+        "line": 737,
+        "name": "quote",
+        "header": "function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);     function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);     function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);     function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);     function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts);"
+      },
+      {
+        "line": 738,
+        "name": "getAmountOut",
+        "header": "function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);     function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);     function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);     function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts); }"
+      },
+      {
+        "line": 739,
+        "name": "getAmountIn",
+        "header": "function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);     function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);     function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts); }"
+      },
+      {
+        "line": 740,
+        "name": "getAmountsOut",
+        "header": "function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);     function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts); }  // File: contracts/BIFI/zap/IUniswapV2Router02.sol"
+      },
+      {
+        "line": 741,
+        "name": "getAmountsIn",
+        "header": "function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts); }  // File: contracts/BIFI/zap/IUniswapV2Router02.sol"
+      },
+      {
+        "line": 750,
+        "name": "removeLiquidityETHSupportingFeeOnTransferTokens",
+        "header": "function removeLiquidityETHSupportingFeeOnTransferTokens(         address token,         uint liquidity,         uint amountTokenMin,         uint amountETHMin,"
+      },
+      {
+        "line": 758,
+        "name": "removeLiquidityETHWithPermitSupportingFeeOnTransferTokens",
+        "header": "function removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(         address token,         uint liquidity,         uint amountTokenMin,         uint amountETHMin,"
+      },
+      {
+        "line": 768,
+        "name": "swapExactTokensForTokensSupportingFeeOnTransferTokens",
+        "header": "function swapExactTokensForTokensSupportingFeeOnTransferTokens(         uint amountIn,         uint amountOutMin,         address[] calldata path,         address to,"
+      },
+      {
+        "line": 775,
+        "name": "swapExactETHForTokensSupportingFeeOnTransferTokens",
+        "header": "function swapExactETHForTokensSupportingFeeOnTransferTokens(         uint amountOutMin,         address[] calldata path,         address to,         uint deadline"
+      },
+      {
+        "line": 781,
+        "name": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+        "header": "function swapExactTokensForETHSupportingFeeOnTransferTokens(         uint amountIn,         uint amountOutMin,         address[] calldata path,         address to,"
+      },
+      {
+        "line": 814,
+        "name": "deposit",
+        "header": "function deposit() external payable;     function withdraw(uint256 wad) external; }  interface IBeefyVaultV6 is IERC20 {"
+      },
+      {
+        "line": 815,
+        "name": "withdraw",
+        "header": "function withdraw(uint256 wad) external; }  interface IBeefyVaultV6 is IERC20 {     function deposit(uint256 amount) external;"
+      },
+      {
+        "line": 819,
+        "name": "deposit",
+        "header": "function deposit(uint256 amount) external;     function withdraw(uint256 shares) external;     function want() external pure returns (address); }"
+      },
+      {
+        "line": 820,
+        "name": "withdraw",
+        "header": "function withdraw(uint256 shares) external;     function want() external pure returns (address); }  contract BeefyUniV2Zap {"
+      },
+      {
+        "line": 821,
+        "name": "want",
+        "header": "function want() external pure returns (address); }  contract BeefyUniV2Zap {     using LowGasSafeMath for uint256;"
+      },
+      {
+        "line": 833,
+        "name": "constructor",
+        "header": "constructor(address _router, address _WETH) {         router = IUniswapV2Router02(_router);         WETH = _WETH;     }"
+      },
+      {
+        "line": 842,
+        "name": "beefInETH",
+        "header": "function beefInETH (address beefyVault, uint256 tokenAmountOutMin) external payable {         require(msg.value >= minimumAmount, 'Beefy: Insignificant input amount');          IWETH(WETH).deposit{value: msg.value}();"
+      },
+      {
+        "line": 850,
+        "name": "beefIn",
+        "header": "function beefIn (address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount) external {         require(tokenInAmount >= minimumAmount, 'Beefy: Insignificant input amount');         require(IERC20(tokenIn).allowance(msg.sender, address(this)) >= tokenInAmount, 'Beefy: Input token is not approved');          IERC20(tokenIn).safeTransferFrom(msg.sender, address(this), tokenInAmount);"
+      },
+      {
+        "line": 859,
+        "name": "beefOut",
+        "header": "function beefOut (address beefyVault, uint256 withdrawAmount) external {         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);          IERC20(beefyVault).safeTransferFrom(msg.sender, address(this), withdrawAmount);         vault.withdraw(withdrawAmount);"
+      },
+      {
+        "line": 878,
+        "name": "beefOutAndSwap",
+        "header": "function beefOutAndSwap(address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin) external {         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);         address token0 = pair.token0();         address token1 = pair.token1();         require(token0 == desiredToken || token1 == desiredToken, 'Beefy: desired token not present in liqudity pair');"
+      },
+      {
+        "line": 899,
+        "name": "_removeLiqudity",
+        "header": "function _removeLiqudity(address pair, address to) private {         IERC20(pair).safeTransfer(pair, IERC20(pair).balanceOf(address(this)));         (uint256 amount0, uint256 amount1) = IUniswapV2Pair(pair).burn(to);          require(amount0 >= minimumAmount, 'UniswapV2Router: INSUFFICIENT_A_AMOUNT');"
+      },
+      {
+        "line": 907,
+        "name": "_getVaultPair",
+        "header": "function _getVaultPair (address beefyVault) private view returns (IBeefyVaultV6 vault, IUniswapV2Pair pair) {         vault = IBeefyVaultV6(beefyVault);         pair = IUniswapV2Pair(vault.want());         require(pair.factory() == router.factory(), 'Beefy: Incompatible liquidity pair factory');     }"
+      },
+      {
+        "line": 913,
+        "name": "_swapAndStake",
+        "header": "function _swapAndStake(address beefyVault, uint256 tokenAmountOutMin, address tokenIn) private {         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);          (uint256 reserveA, uint256 reserveB,) = pair.getReserves();         require(reserveA > minimumAmount && reserveB > minimumAmount, 'Beefy: Liquidity pair reserves too low');"
+      },
+      {
+        "line": 949,
+        "name": "_returnAssets",
+        "header": "function _returnAssets(address[] memory tokens) private {         uint256 balance;         for (uint256 i; i < tokens.length; i++) {             balance = IERC20(tokens[i]).balanceOf(address(this));             if (balance > 0) {"
+      },
+      {
+        "line": 965,
+        "name": "_getSwapAmount",
+        "header": "function _getSwapAmount(uint256 investmentA, uint256 reserveA, uint256 reserveB) private view returns (uint256 swapAmount) {         uint256 halfInvestment = investmentA / 2;         uint256 nominator = router.getAmountOut(halfInvestment, reserveA, reserveB);         uint256 denominator = router.quote(halfInvestment, reserveA.add(halfInvestment), reserveB.sub(nominator));         swapAmount = investmentA.sub(Babylonian.sqrt(halfInvestment * halfInvestment * nominator / denominator));"
+      },
+      {
+        "line": 972,
+        "name": "estimateSwap",
+        "header": "function estimateSwap(address beefyVault, address tokenIn, uint256 fullInvestmentIn) public view returns(uint256 swapAmountIn, uint256 swapAmountOut, address swapTokenOut) {         checkWETH();         (, IUniswapV2Pair pair) = _getVaultPair(beefyVault);          bool isInputA = pair.token0() == tokenIn;"
+      },
+      {
+        "line": 987,
+        "name": "checkWETH",
+        "header": "function checkWETH() public view returns (bool isValid) {         isValid = WETH == router.WETH();         require(isValid, 'Beefy: WETH address not matching Router.WETH()');     }"
+      },
+      {
+        "line": 992,
+        "name": "_approveTokenIfNeeded",
+        "header": "function _approveTokenIfNeeded(address token, address spender) private {         if (IERC20(token).allowance(address(this), spender) == 0) {             IERC20(token).safeApprove(spender, type(uint).max);         }     }"
+      }
+    ],
+    "sink_windows": [
+      {
+        "sink_line": 18,
+        "start": 10,
+        "end": 26,
+        "snippet": "     10: interface IUniswapV2Pair {\n     11:     event Approval(address indexed owner, address indexed spender, uint value);\n     12:     event Transfer(address indexed from, address indexed to, uint value);\n     13: \n     14:     function name() external pure returns (string memory);\n     15:     function symbol() external pure returns (string memory);\n     16:     function decimals() external pure returns (uint8);\n     17:     function totalSupply() external view returns (uint);\n>>   18:     function balanceOf(address owner) external view returns (uint);\n     19:     function allowance(address owner, address spender) external view returns (uint);\n     20: \n     21:     function approve(address spender, uint value) external returns (bool);\n     22:     function transfer(address to, uint value) external returns (bool);\n     23:     function transferFrom(address from, address to, uint value) external returns (bool);\n     24: \n     25:     function DOMAIN_SEPARATOR() external view returns (bytes32);\n     26:     function PERMIT_TYPEHASH() external pure returns (bytes32);"
+      },
+      {
+        "sink_line": 21,
+        "start": 13,
+        "end": 29,
+        "snippet": "     13: \n     14:     function name() external pure returns (string memory);\n     15:     function symbol() external pure returns (string memory);\n     16:     function decimals() external pure returns (uint8);\n     17:     function totalSupply() external view returns (uint);\n     18:     function balanceOf(address owner) external view returns (uint);\n     19:     function allowance(address owner, address spender) external view returns (uint);\n     20: \n>>   21:     function approve(address spender, uint value) external returns (bool);\n     22:     function transfer(address to, uint value) external returns (bool);\n     23:     function transferFrom(address from, address to, uint value) external returns (bool);\n     24: \n     25:     function DOMAIN_SEPARATOR() external view returns (bytes32);\n     26:     function PERMIT_TYPEHASH() external pure returns (bytes32);\n     27:     function nonces(address owner) external view returns (uint);\n     28: \n     29:     function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external;"
+      },
+      {
+        "sink_line": 47,
+        "start": 39,
+        "end": 55,
+        "snippet": "     39:         address indexed to\n     40:     );\n     41:     event Sync(uint112 reserve0, uint112 reserve1);\n     42: \n     43:     function MINIMUM_LIQUIDITY() external pure returns (uint);\n     44:     function factory() external view returns (address);\n     45:     function token0() external view returns (address);\n     46:     function token1() external view returns (address);\n>>   47:     function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);\n     48:     function price0CumulativeLast() external view returns (uint);\n     49:     function price1CumulativeLast() external view returns (uint);\n     50:     function kLast() external view returns (uint);\n     51: \n     52:     function mint(address to) external returns (uint liquidity);\n     53:     function burn(address to) external returns (uint amount0, uint amount1);\n     54:     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;\n     55:     function skim(address to) external;"
+      },
+      {
+        "sink_line": 133,
+        "start": 125,
+        "end": 141,
+        "snippet": "    125:     /**\n    126:      * @dev Returns the amount of tokens in existence.\n    127:      */\n    128:     function totalSupply() external view returns (uint256);\n    129: \n    130:     /**\n    131:      * @dev Returns the amount of tokens owned by `account`.\n    132:      */\n>>  133:     function balanceOf(address account) external view returns (uint256);\n    134: \n    135:     /**\n    136:      * @dev Moves `amount` tokens from the caller's account to `recipient`.\n    137:      *\n    138:      * Returns a boolean value indicating whether the operation succeeded.\n    139:      *\n    140:      * Emits a {Transfer} event.\n    141:      */"
+      },
+      {
+        "sink_line": 149,
+        "start": 141,
+        "end": 157,
+        "snippet": "    141:      */\n    142:     function transfer(address recipient, uint256 amount) external returns (bool);\n    143: \n    144:     /**\n    145:      * @dev Returns the remaining number of tokens that `spender` will be\n    146:      * allowed to spend on behalf of `owner` through {transferFrom}. This is\n    147:      * zero by default.\n    148:      *\n>>  149:      * This value changes when {approve} or {transferFrom} are called.\n    150:      */\n    151:     function allowance(address owner, address spender) external view returns (uint256);\n    152: \n    153:     /**\n    154:      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\n    155:      *\n    156:      * Returns a boolean value indicating whether the operation succeeded.\n    157:      *"
+      },
+      {
+        "sink_line": 167,
+        "start": 159,
+        "end": 175,
+        "snippet": "    159:      * that someone may use both the old and the new allowance by unfortunate\n    160:      * transaction ordering. One possible solution to mitigate this race\n    161:      * condition is to first reduce the spender's allowance to 0 and set the\n    162:      * desired value afterwards:\n    163:      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n    164:      *\n    165:      * Emits an {Approval} event.\n    166:      */\n>>  167:     function approve(address spender, uint256 amount) external returns (bool);\n    168: \n    169:     /**\n    170:      * @dev Moves `amount` tokens from `sender` to `recipient` using the\n    171:      * allowance mechanism. `amount` is then deducted from the caller's\n    172:      * allowance.\n    173:      *\n    174:      * Returns a boolean value indicating whether the operation succeeded.\n    175:      *"
+      },
+      {
+        "sink_line": 190,
+        "start": 182,
+        "end": 198,
+        "snippet": "    182:      * another (`to`).\n    183:      *\n    184:      * Note that `value` may be zero.\n    185:      */\n    186:     event Transfer(address indexed from, address indexed to, uint256 value);\n    187: \n    188:     /**\n    189:      * @dev Emitted when the allowance of a `spender` for an `owner` is set by\n>>  190:      * a call to {approve}. `value` is the new allowance.\n    191:      */\n    192:     event Approval(address indexed owner, address indexed spender, uint256 value);\n    193: }\n    194: \n    195: // File: contracts/BIFI/zap/SafeMath.sol\n    196: \n    197: \n    198: pragma solidity ^0.8.0;"
+      },
+      {
+        "sink_line": 537,
+        "start": 529,
+        "end": 545,
+        "snippet": "    529: \n    530: /**\n    531:  * @title SafeERC20\n    532:  * @dev Wrappers around ERC20 operations that throw on failure (when the token\n    533:  * contract returns false). Tokens that return no value (and instead revert or\n    534:  * throw on failure) are also supported, non-reverting calls are assumed to be\n    535:  * successful.\n    536:  * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\n>>  537:  * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\n    538:  */\n    539: library SafeERC20 {\n    540:     using SafeMath for uint256;\n    541:     using Address for address;\n    542: \n    543:     function safeTransfer(IERC20 token, address to, uint256 value) internal {\n    544:         _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));\n    545:     }"
+      },
+      {
+        "sink_line": 543,
+        "start": 535,
+        "end": 551,
+        "snippet": "    535:  * successful.\n    536:  * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\n    537:  * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\n    538:  */\n    539: library SafeERC20 {\n    540:     using SafeMath for uint256;\n    541:     using Address for address;\n    542: \n>>  543:     function safeTransfer(IERC20 token, address to, uint256 value) internal {\n    544:         _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));\n    545:     }\n    546: \n    547:     function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {\n    548:         _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));\n    549:     }\n    550: \n    551:     /**"
+      },
+      {
+        "sink_line": 547,
+        "start": 539,
+        "end": 555,
+        "snippet": "    539: library SafeERC20 {\n    540:     using SafeMath for uint256;\n    541:     using Address for address;\n    542: \n    543:     function safeTransfer(IERC20 token, address to, uint256 value) internal {\n    544:         _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));\n    545:     }\n    546: \n>>  547:     function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {\n    548:         _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));\n    549:     }\n    550: \n    551:     /**\n    552:      * @dev Deprecated. This function has issues similar to the ones found in\n    553:      * {IERC20-approve}, and its usage is discouraged.\n    554:      *\n    555:      * Whenever possible, use {safeIncreaseAllowance} and"
+      },
+      {
+        "sink_line": 553,
+        "start": 545,
+        "end": 561,
+        "snippet": "    545:     }\n    546: \n    547:     function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {\n    548:         _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));\n    549:     }\n    550: \n    551:     /**\n    552:      * @dev Deprecated. This function has issues similar to the ones found in\n>>  553:      * {IERC20-approve}, and its usage is discouraged.\n    554:      *\n    555:      * Whenever possible, use {safeIncreaseAllowance} and\n    556:      * {safeDecreaseAllowance} instead.\n    557:      */\n    558:     function safeApprove(IERC20 token, address spender, uint256 value) internal {\n    559:         // safeApprove should only be called when setting an initial allowance,\n    560:         // or when resetting it to zero. To increase and decrease it, use\n    561:         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'"
+      },
+      {
+        "sink_line": 558,
+        "start": 550,
+        "end": 566,
+        "snippet": "    550: \n    551:     /**\n    552:      * @dev Deprecated. This function has issues similar to the ones found in\n    553:      * {IERC20-approve}, and its usage is discouraged.\n    554:      *\n    555:      * Whenever possible, use {safeIncreaseAllowance} and\n    556:      * {safeDecreaseAllowance} instead.\n    557:      */\n>>  558:     function safeApprove(IERC20 token, address spender, uint256 value) internal {\n    559:         // safeApprove should only be called when setting an initial allowance,\n    560:         // or when resetting it to zero. To increase and decrease it, use\n    561:         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\n    562:         // solhint-disable-next-line max-line-length\n    563:         require((value == 0) || (token.allowance(address(this), spender) == 0),\n    564:             \"SafeERC20: approve from non-zero to non-zero allowance\"\n    565:         );\n    566:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));"
+      },
+      {
+        "sink_line": 559,
+        "start": 551,
+        "end": 567,
+        "snippet": "    551:     /**\n    552:      * @dev Deprecated. This function has issues similar to the ones found in\n    553:      * {IERC20-approve}, and its usage is discouraged.\n    554:      *\n    555:      * Whenever possible, use {safeIncreaseAllowance} and\n    556:      * {safeDecreaseAllowance} instead.\n    557:      */\n    558:     function safeApprove(IERC20 token, address spender, uint256 value) internal {\n>>  559:         // safeApprove should only be called when setting an initial allowance,\n    560:         // or when resetting it to zero. To increase and decrease it, use\n    561:         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\n    562:         // solhint-disable-next-line max-line-length\n    563:         require((value == 0) || (token.allowance(address(this), spender) == 0),\n    564:             \"SafeERC20: approve from non-zero to non-zero allowance\"\n    565:         );\n    566:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\n    567:     }"
+      },
+      {
+        "sink_line": 564,
+        "start": 556,
+        "end": 572,
+        "snippet": "    556:      * {safeDecreaseAllowance} instead.\n    557:      */\n    558:     function safeApprove(IERC20 token, address spender, uint256 value) internal {\n    559:         // safeApprove should only be called when setting an initial allowance,\n    560:         // or when resetting it to zero. To increase and decrease it, use\n    561:         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\n    562:         // solhint-disable-next-line max-line-length\n    563:         require((value == 0) || (token.allowance(address(this), spender) == 0),\n>>  564:             \"SafeERC20: approve from non-zero to non-zero allowance\"\n    565:         );\n    566:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\n    567:     }\n    568: \n    569:     function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    570:         uint256 newAllowance = token.allowance(address(this), spender).add(value);\n    571:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    572:     }"
+      },
+      {
+        "sink_line": 566,
+        "start": 558,
+        "end": 574,
+        "snippet": "    558:     function safeApprove(IERC20 token, address spender, uint256 value) internal {\n    559:         // safeApprove should only be called when setting an initial allowance,\n    560:         // or when resetting it to zero. To increase and decrease it, use\n    561:         // 'safeIncreaseAllowance' and 'safeDecreaseAllowance'\n    562:         // solhint-disable-next-line max-line-length\n    563:         require((value == 0) || (token.allowance(address(this), spender) == 0),\n    564:             \"SafeERC20: approve from non-zero to non-zero allowance\"\n    565:         );\n>>  566:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\n    567:     }\n    568: \n    569:     function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    570:         uint256 newAllowance = token.allowance(address(this), spender).add(value);\n    571:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    572:     }\n    573: \n    574:     function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {"
+      },
+      {
+        "sink_line": 571,
+        "start": 563,
+        "end": 579,
+        "snippet": "    563:         require((value == 0) || (token.allowance(address(this), spender) == 0),\n    564:             \"SafeERC20: approve from non-zero to non-zero allowance\"\n    565:         );\n    566:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));\n    567:     }\n    568: \n    569:     function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    570:         uint256 newAllowance = token.allowance(address(this), spender).add(value);\n>>  571:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    572:     }\n    573: \n    574:     function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    575:         uint256 newAllowance = token.allowance(address(this), spender).sub(value, \"SafeERC20: decreased allowance below zero\");\n    576:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    577:     }\n    578: \n    579:     /**"
+      },
+      {
+        "sink_line": 576,
+        "start": 568,
+        "end": 584,
+        "snippet": "    568: \n    569:     function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    570:         uint256 newAllowance = token.allowance(address(this), spender).add(value);\n    571:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    572:     }\n    573: \n    574:     function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {\n    575:         uint256 newAllowance = token.allowance(address(this), spender).sub(value, \"SafeERC20: decreased allowance below zero\");\n>>  576:         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));\n    577:     }\n    578: \n    579:     /**\n    580:      * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement\n    581:      * on the return value: the return value is optional (but if data is returned, it must not be false).\n    582:      * @param token The token targeted by the call.\n    583:      * @param data The call data (encoded using abi.encode or one of its variants).\n    584:      */"
+      },
+      {
+        "sink_line": 654,
+        "start": 646,
+        "end": 662,
+        "snippet": "    646: // File: contracts/BIFI/zap/IUniswapV2Router01.sol\n    647: \n    648: pragma solidity ^0.8.0;\n    649: \n    650: interface IUniswapV2Router01 {\n    651:     function factory() external pure returns (address);\n    652:     function WETH() external pure returns (address);\n    653: \n>>  654:     function addLiquidity(\n    655:         address tokenA,\n    656:         address tokenB,\n    657:         uint amountADesired,\n    658:         uint amountBDesired,\n    659:         uint amountAMin,\n    660:         uint amountBMin,\n    661:         address to,\n    662:         uint deadline"
+      },
+      {
+        "sink_line": 664,
+        "start": 656,
+        "end": 672,
+        "snippet": "    656:         address tokenB,\n    657:         uint amountADesired,\n    658:         uint amountBDesired,\n    659:         uint amountAMin,\n    660:         uint amountBMin,\n    661:         address to,\n    662:         uint deadline\n    663:     ) external returns (uint amountA, uint amountB, uint liquidity);\n>>  664:     function addLiquidityETH(\n    665:         address token,\n    666:         uint amountTokenDesired,\n    667:         uint amountTokenMin,\n    668:         uint amountETHMin,\n    669:         address to,\n    670:         uint deadline\n    671:     ) external payable returns (uint amountToken, uint amountETH, uint liquidity);\n    672:     function removeLiquidity("
+      },
+      {
+        "sink_line": 672,
+        "start": 664,
+        "end": 680,
+        "snippet": "    664:     function addLiquidityETH(\n    665:         address token,\n    666:         uint amountTokenDesired,\n    667:         uint amountTokenMin,\n    668:         uint amountETHMin,\n    669:         address to,\n    670:         uint deadline\n    671:     ) external payable returns (uint amountToken, uint amountETH, uint liquidity);\n>>  672:     function removeLiquidity(\n    673:         address tokenA,\n    674:         address tokenB,\n    675:         uint liquidity,\n    676:         uint amountAMin,\n    677:         uint amountBMin,\n    678:         address to,\n    679:         uint deadline\n    680:     ) external returns (uint amountA, uint amountB);"
+      },
+      {
+        "sink_line": 681,
+        "start": 673,
+        "end": 689,
+        "snippet": "    673:         address tokenA,\n    674:         address tokenB,\n    675:         uint liquidity,\n    676:         uint amountAMin,\n    677:         uint amountBMin,\n    678:         address to,\n    679:         uint deadline\n    680:     ) external returns (uint amountA, uint amountB);\n>>  681:     function removeLiquidityETH(\n    682:         address token,\n    683:         uint liquidity,\n    684:         uint amountTokenMin,\n    685:         uint amountETHMin,\n    686:         address to,\n    687:         uint deadline\n    688:     ) external returns (uint amountToken, uint amountETH);\n    689:     function removeLiquidityWithPermit("
+      },
+      {
+        "sink_line": 689,
+        "start": 681,
+        "end": 697,
+        "snippet": "    681:     function removeLiquidityETH(\n    682:         address token,\n    683:         uint liquidity,\n    684:         uint amountTokenMin,\n    685:         uint amountETHMin,\n    686:         address to,\n    687:         uint deadline\n    688:     ) external returns (uint amountToken, uint amountETH);\n>>  689:     function removeLiquidityWithPermit(\n    690:         address tokenA,\n    691:         address tokenB,\n    692:         uint liquidity,\n    693:         uint amountAMin,\n    694:         uint amountBMin,\n    695:         address to,\n    696:         uint deadline,\n    697:         bool approveMax, uint8 v, bytes32 r, bytes32 s"
+      },
+      {
+        "sink_line": 699,
+        "start": 691,
+        "end": 707,
+        "snippet": "    691:         address tokenB,\n    692:         uint liquidity,\n    693:         uint amountAMin,\n    694:         uint amountBMin,\n    695:         address to,\n    696:         uint deadline,\n    697:         bool approveMax, uint8 v, bytes32 r, bytes32 s\n    698:     ) external returns (uint amountA, uint amountB);\n>>  699:     function removeLiquidityETHWithPermit(\n    700:         address token,\n    701:         uint liquidity,\n    702:         uint amountTokenMin,\n    703:         uint amountETHMin,\n    704:         address to,\n    705:         uint deadline,\n    706:         bool approveMax, uint8 v, bytes32 r, bytes32 s\n    707:     ) external returns (uint amountToken, uint amountETH);"
+      },
+      {
+        "sink_line": 708,
+        "start": 700,
+        "end": 716,
+        "snippet": "    700:         address token,\n    701:         uint liquidity,\n    702:         uint amountTokenMin,\n    703:         uint amountETHMin,\n    704:         address to,\n    705:         uint deadline,\n    706:         bool approveMax, uint8 v, bytes32 r, bytes32 s\n    707:     ) external returns (uint amountToken, uint amountETH);\n>>  708:     function swapExactTokensForTokens(\n    709:         uint amountIn,\n    710:         uint amountOutMin,\n    711:         address[] calldata path,\n    712:         address to,\n    713:         uint deadline\n    714:     ) external returns (uint[] memory amounts);\n    715:     function swapTokensForExactTokens(\n    716:         uint amountOut,"
+      },
+      {
+        "sink_line": 722,
+        "start": 714,
+        "end": 730,
+        "snippet": "    714:     ) external returns (uint[] memory amounts);\n    715:     function swapTokensForExactTokens(\n    716:         uint amountOut,\n    717:         uint amountInMax,\n    718:         address[] calldata path,\n    719:         address to,\n    720:         uint deadline\n    721:     ) external returns (uint[] memory amounts);\n>>  722:     function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)\n    723:         external\n    724:         payable\n    725:         returns (uint[] memory amounts);\n    726:     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)\n    727:         external\n    728:         returns (uint[] memory amounts);\n    729:     function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)\n    730:         external"
+      },
+      {
+        "sink_line": 729,
+        "start": 721,
+        "end": 737,
+        "snippet": "    721:     ) external returns (uint[] memory amounts);\n    722:     function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)\n    723:         external\n    724:         payable\n    725:         returns (uint[] memory amounts);\n    726:     function swapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)\n    727:         external\n    728:         returns (uint[] memory amounts);\n>>  729:     function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)\n    730:         external\n    731:         returns (uint[] memory amounts);\n    732:     function swapETHForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)\n    733:         external\n    734:         payable\n    735:         returns (uint[] memory amounts);\n    736: \n    737:     function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);"
+      },
+      {
+        "sink_line": 750,
+        "start": 742,
+        "end": 758,
+        "snippet": "    742: }\n    743: \n    744: // File: contracts/BIFI/zap/IUniswapV2Router02.sol\n    745: \n    746: pragma solidity ^0.8.0;\n    747: \n    748: \n    749: interface IUniswapV2Router02 is IUniswapV2Router01 {\n>>  750:     function removeLiquidityETHSupportingFeeOnTransferTokens(\n    751:         address token,\n    752:         uint liquidity,\n    753:         uint amountTokenMin,\n    754:         uint amountETHMin,\n    755:         address to,\n    756:         uint deadline\n    757:     ) external returns (uint amountETH);\n    758:     function removeLiquidityETHWithPermitSupportingFeeOnTransferTokens("
+      },
+      {
+        "sink_line": 758,
+        "start": 750,
+        "end": 766,
+        "snippet": "    750:     function removeLiquidityETHSupportingFeeOnTransferTokens(\n    751:         address token,\n    752:         uint liquidity,\n    753:         uint amountTokenMin,\n    754:         uint amountETHMin,\n    755:         address to,\n    756:         uint deadline\n    757:     ) external returns (uint amountETH);\n>>  758:     function removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(\n    759:         address token,\n    760:         uint liquidity,\n    761:         uint amountTokenMin,\n    762:         uint amountETHMin,\n    763:         address to,\n    764:         uint deadline,\n    765:         bool approveMax, uint8 v, bytes32 r, bytes32 s\n    766:     ) external returns (uint amountETH);"
+      },
+      {
+        "sink_line": 768,
+        "start": 760,
+        "end": 776,
+        "snippet": "    760:         uint liquidity,\n    761:         uint amountTokenMin,\n    762:         uint amountETHMin,\n    763:         address to,\n    764:         uint deadline,\n    765:         bool approveMax, uint8 v, bytes32 r, bytes32 s\n    766:     ) external returns (uint amountETH);\n    767: \n>>  768:     function swapExactTokensForTokensSupportingFeeOnTransferTokens(\n    769:         uint amountIn,\n    770:         uint amountOutMin,\n    771:         address[] calldata path,\n    772:         address to,\n    773:         uint deadline\n    774:     ) external;\n    775:     function swapExactETHForTokensSupportingFeeOnTransferTokens(\n    776:         uint amountOutMin,"
+      },
+      {
+        "sink_line": 775,
+        "start": 767,
+        "end": 783,
+        "snippet": "    767: \n    768:     function swapExactTokensForTokensSupportingFeeOnTransferTokens(\n    769:         uint amountIn,\n    770:         uint amountOutMin,\n    771:         address[] calldata path,\n    772:         address to,\n    773:         uint deadline\n    774:     ) external;\n>>  775:     function swapExactETHForTokensSupportingFeeOnTransferTokens(\n    776:         uint amountOutMin,\n    777:         address[] calldata path,\n    778:         address to,\n    779:         uint deadline\n    780:     ) external payable;\n    781:     function swapExactTokensForETHSupportingFeeOnTransferTokens(\n    782:         uint amountIn,\n    783:         uint amountOutMin,"
+      },
+      {
+        "sink_line": 781,
+        "start": 773,
+        "end": 789,
+        "snippet": "    773:         uint deadline\n    774:     ) external;\n    775:     function swapExactETHForTokensSupportingFeeOnTransferTokens(\n    776:         uint amountOutMin,\n    777:         address[] calldata path,\n    778:         address to,\n    779:         uint deadline\n    780:     ) external payable;\n>>  781:     function swapExactTokensForETHSupportingFeeOnTransferTokens(\n    782:         uint amountIn,\n    783:         uint amountOutMin,\n    784:         address[] calldata path,\n    785:         address to,\n    786:         uint deadline\n    787:     ) external;\n    788: }\n    789: "
+      },
+      {
+        "sink_line": 854,
+        "start": 846,
+        "end": 862,
+        "snippet": "    846: \n    847:         _swapAndStake(beefyVault, tokenAmountOutMin, WETH);\n    848:     }\n    849: \n    850:     function beefIn (address beefyVault, uint256 tokenAmountOutMin, address tokenIn, uint256 tokenInAmount) external {\n    851:         require(tokenInAmount >= minimumAmount, 'Beefy: Insignificant input amount');\n    852:         require(IERC20(tokenIn).allowance(msg.sender, address(this)) >= tokenInAmount, 'Beefy: Input token is not approved');\n    853: \n>>  854:         IERC20(tokenIn).safeTransferFrom(msg.sender, address(this), tokenInAmount);\n    855: \n    856:         _swapAndStake(beefyVault, tokenAmountOutMin, tokenIn);\n    857:     }\n    858: \n    859:     function beefOut (address beefyVault, uint256 withdrawAmount) external {\n    860:         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);\n    861: \n    862:         IERC20(beefyVault).safeTransferFrom(msg.sender, address(this), withdrawAmount);"
+      },
+      {
+        "sink_line": 862,
+        "start": 854,
+        "end": 870,
+        "snippet": "    854:         IERC20(tokenIn).safeTransferFrom(msg.sender, address(this), tokenInAmount);\n    855: \n    856:         _swapAndStake(beefyVault, tokenAmountOutMin, tokenIn);\n    857:     }\n    858: \n    859:     function beefOut (address beefyVault, uint256 withdrawAmount) external {\n    860:         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);\n    861: \n>>  862:         IERC20(beefyVault).safeTransferFrom(msg.sender, address(this), withdrawAmount);\n    863:         vault.withdraw(withdrawAmount);\n    864: \n    865:         if (pair.token0() != WETH && pair.token1() != WETH) {\n    866:             return _removeLiqudity(address(pair), msg.sender);\n    867:         }\n    868: \n    869:         _removeLiqudity(address(pair), address(this));\n    870: "
+      },
+      {
+        "sink_line": 884,
+        "start": 876,
+        "end": 892,
+        "snippet": "    876:     }\n    877: \n    878:     function beefOutAndSwap(address beefyVault, uint256 withdrawAmount, address desiredToken, uint256 desiredTokenOutMin) external {\n    879:         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);\n    880:         address token0 = pair.token0();\n    881:         address token1 = pair.token1();\n    882:         require(token0 == desiredToken || token1 == desiredToken, 'Beefy: desired token not present in liqudity pair');\n    883: \n>>  884:         vault.safeTransferFrom(msg.sender, address(this), withdrawAmount);\n    885:         vault.withdraw(withdrawAmount);\n    886:         _removeLiqudity(address(pair), address(this));\n    887: \n    888:         address swapToken = token1 == desiredToken ? token0 : token1;\n    889:         address[] memory path = new address[](2);\n    890:         path[0] = swapToken;\n    891:         path[1] = desiredToken;\n    892: "
+      },
+      {
+        "sink_line": 894,
+        "start": 886,
+        "end": 902,
+        "snippet": "    886:         _removeLiqudity(address(pair), address(this));\n    887: \n    888:         address swapToken = token1 == desiredToken ? token0 : token1;\n    889:         address[] memory path = new address[](2);\n    890:         path[0] = swapToken;\n    891:         path[1] = desiredToken;\n    892: \n    893:         _approveTokenIfNeeded(path[0], address(router));\n>>  894:         router.swapExactTokensForTokens(IERC20(swapToken).balanceOf(address(this)), desiredTokenOutMin, path, address(this), block.timestamp);\n    895: \n    896:         _returnAssets(path);\n    897:     }\n    898: \n    899:     function _removeLiqudity(address pair, address to) private {\n    900:         IERC20(pair).safeTransfer(pair, IERC20(pair).balanceOf(address(this)));\n    901:         (uint256 amount0, uint256 amount1) = IUniswapV2Pair(pair).burn(to);\n    902: "
+      },
+      {
+        "sink_line": 900,
+        "start": 892,
+        "end": 908,
+        "snippet": "    892: \n    893:         _approveTokenIfNeeded(path[0], address(router));\n    894:         router.swapExactTokensForTokens(IERC20(swapToken).balanceOf(address(this)), desiredTokenOutMin, path, address(this), block.timestamp);\n    895: \n    896:         _returnAssets(path);\n    897:     }\n    898: \n    899:     function _removeLiqudity(address pair, address to) private {\n>>  900:         IERC20(pair).safeTransfer(pair, IERC20(pair).balanceOf(address(this)));\n    901:         (uint256 amount0, uint256 amount1) = IUniswapV2Pair(pair).burn(to);\n    902: \n    903:         require(amount0 >= minimumAmount, 'UniswapV2Router: INSUFFICIENT_A_AMOUNT');\n    904:         require(amount1 >= minimumAmount, 'UniswapV2Router: INSUFFICIENT_B_AMOUNT');\n    905:     }\n    906: \n    907:     function _getVaultPair (address beefyVault) private view returns (IBeefyVaultV6 vault, IUniswapV2Pair pair) {\n    908:         vault = IBeefyVaultV6(beefyVault);"
+      },
+      {
+        "sink_line": 916,
+        "start": 908,
+        "end": 924,
+        "snippet": "    908:         vault = IBeefyVaultV6(beefyVault);\n    909:         pair = IUniswapV2Pair(vault.want());\n    910:         require(pair.factory() == router.factory(), 'Beefy: Incompatible liquidity pair factory');\n    911:     }\n    912: \n    913:     function _swapAndStake(address beefyVault, uint256 tokenAmountOutMin, address tokenIn) private {\n    914:         (IBeefyVaultV6 vault, IUniswapV2Pair pair) = _getVaultPair(beefyVault);\n    915: \n>>  916:         (uint256 reserveA, uint256 reserveB,) = pair.getReserves();\n    917:         require(reserveA > minimumAmount && reserveB > minimumAmount, 'Beefy: Liquidity pair reserves too low');\n    918: \n    919:         bool isInputA = pair.token0() == tokenIn;\n    920:         require(isInputA || pair.token1() == tokenIn, 'Beefy: Input token not present in liqudity pair');\n    921: \n    922:         address[] memory path = new address[](2);\n    923:         path[0] = tokenIn;\n    924:         path[1] = isInputA ? pair.token1() : pair.token0();"
+      },
+      {
+        "sink_line": 926,
+        "start": 918,
+        "end": 934,
+        "snippet": "    918: \n    919:         bool isInputA = pair.token0() == tokenIn;\n    920:         require(isInputA || pair.token1() == tokenIn, 'Beefy: Input token not present in liqudity pair');\n    921: \n    922:         address[] memory path = new address[](2);\n    923:         path[0] = tokenIn;\n    924:         path[1] = isInputA ? pair.token1() : pair.token0();\n    925: \n>>  926:         uint256 fullInvestment = IERC20(tokenIn).balanceOf(address(this));\n    927:         uint256 swapAmountIn;\n    928:         if (isInputA) {\n    929:             swapAmountIn = _getSwapAmount(fullInvestment, reserveA, reserveB);\n    930:         } else {\n    931:             swapAmountIn = _getSwapAmount(fullInvestment, reserveB, reserveA);\n    932:         }\n    933: \n    934:         _approveTokenIfNeeded(path[0], address(router));"
+      },
+      {
+        "sink_line": 936,
+        "start": 928,
+        "end": 944,
+        "snippet": "    928:         if (isInputA) {\n    929:             swapAmountIn = _getSwapAmount(fullInvestment, reserveA, reserveB);\n    930:         } else {\n    931:             swapAmountIn = _getSwapAmount(fullInvestment, reserveB, reserveA);\n    932:         }\n    933: \n    934:         _approveTokenIfNeeded(path[0], address(router));\n    935:         uint256[] memory swapedAmounts = router\n>>  936:             .swapExactTokensForTokens(swapAmountIn, tokenAmountOutMin, path, address(this), block.timestamp);\n    937: \n    938:         _approveTokenIfNeeded(path[1], address(router));\n    939:         (,, uint256 amountLiquidity) = router\n    940:             .addLiquidity(path[0], path[1], fullInvestment.sub(swapedAmounts[0]), swapedAmounts[1], 1, 1, address(this), block.timestamp);\n    941: \n    942:         _approveTokenIfNeeded(address(pair), address(vault));\n    943:         vault.deposit(amountLiquidity);\n    944: "
+      },
+      {
+        "sink_line": 940,
+        "start": 932,
+        "end": 948,
+        "snippet": "    932:         }\n    933: \n    934:         _approveTokenIfNeeded(path[0], address(router));\n    935:         uint256[] memory swapedAmounts = router\n    936:             .swapExactTokensForTokens(swapAmountIn, tokenAmountOutMin, path, address(this), block.timestamp);\n    937: \n    938:         _approveTokenIfNeeded(path[1], address(router));\n    939:         (,, uint256 amountLiquidity) = router\n>>  940:             .addLiquidity(path[0], path[1], fullInvestment.sub(swapedAmounts[0]), swapedAmounts[1], 1, 1, address(this), block.timestamp);\n    941: \n    942:         _approveTokenIfNeeded(address(pair), address(vault));\n    943:         vault.deposit(amountLiquidity);\n    944: \n    945:         vault.safeTransfer(msg.sender, vault.balanceOf(address(this)));\n    946:         _returnAssets(path);\n    947:     }\n    948: "
+      },
+      {
+        "sink_line": 945,
+        "start": 937,
+        "end": 953,
+        "snippet": "    937: \n    938:         _approveTokenIfNeeded(path[1], address(router));\n    939:         (,, uint256 amountLiquidity) = router\n    940:             .addLiquidity(path[0], path[1], fullInvestment.sub(swapedAmounts[0]), swapedAmounts[1], 1, 1, address(this), block.timestamp);\n    941: \n    942:         _approveTokenIfNeeded(address(pair), address(vault));\n    943:         vault.deposit(amountLiquidity);\n    944: \n>>  945:         vault.safeTransfer(msg.sender, vault.balanceOf(address(this)));\n    946:         _returnAssets(path);\n    947:     }\n    948: \n    949:     function _returnAssets(address[] memory tokens) private {\n    950:         uint256 balance;\n    951:         for (uint256 i; i < tokens.length; i++) {\n    952:             balance = IERC20(tokens[i]).balanceOf(address(this));\n    953:             if (balance > 0) {"
+      },
+      {
+        "sink_line": 952,
+        "start": 944,
+        "end": 960,
+        "snippet": "    944: \n    945:         vault.safeTransfer(msg.sender, vault.balanceOf(address(this)));\n    946:         _returnAssets(path);\n    947:     }\n    948: \n    949:     function _returnAssets(address[] memory tokens) private {\n    950:         uint256 balance;\n    951:         for (uint256 i; i < tokens.length; i++) {\n>>  952:             balance = IERC20(tokens[i]).balanceOf(address(this));\n    953:             if (balance > 0) {\n    954:                 if (tokens[i] == WETH) {\n    955:                     IWETH(WETH).withdraw(balance);\n    956:                     (bool success,) = msg.sender.call{value: balance}(new bytes(0));\n    957:                     require(success, 'Beefy: ETH transfer failed');\n    958:                 } else {\n    959:                     IERC20(tokens[i]).safeTransfer(msg.sender, balance);\n    960:                 }"
+      },
+      {
+        "sink_line": 959,
+        "start": 951,
+        "end": 967,
+        "snippet": "    951:         for (uint256 i; i < tokens.length; i++) {\n    952:             balance = IERC20(tokens[i]).balanceOf(address(this));\n    953:             if (balance > 0) {\n    954:                 if (tokens[i] == WETH) {\n    955:                     IWETH(WETH).withdraw(balance);\n    956:                     (bool success,) = msg.sender.call{value: balance}(new bytes(0));\n    957:                     require(success, 'Beefy: ETH transfer failed');\n    958:                 } else {\n>>  959:                     IERC20(tokens[i]).safeTransfer(msg.sender, balance);\n    960:                 }\n    961:             }\n    962:         }\n    963:     }\n    964: \n    965:     function _getSwapAmount(uint256 investmentA, uint256 reserveA, uint256 reserveB) private view returns (uint256 swapAmount) {\n    966:         uint256 halfInvestment = investmentA / 2;\n    967:         uint256 nominator = router.getAmountOut(halfInvestment, reserveA, reserveB);"
+      },
+      {
+        "sink_line": 979,
+        "start": 971,
+        "end": 987,
+        "snippet": "    971: \n    972:     function estimateSwap(address beefyVault, address tokenIn, uint256 fullInvestmentIn) public view returns(uint256 swapAmountIn, uint256 swapAmountOut, address swapTokenOut) {\n    973:         checkWETH();\n    974:         (, IUniswapV2Pair pair) = _getVaultPair(beefyVault);\n    975: \n    976:         bool isInputA = pair.token0() == tokenIn;\n    977:         require(isInputA || pair.token1() == tokenIn, 'Beefy: Input token not present in liqudity pair');\n    978: \n>>  979:         (uint256 reserveA, uint256 reserveB,) = pair.getReserves();\n    980:         (reserveA, reserveB) = isInputA ? (reserveA, reserveB) : (reserveB, reserveA);\n    981: \n    982:         swapAmountIn = _getSwapAmount(fullInvestmentIn, reserveA, reserveB);\n    983:         swapAmountOut = router.getAmountOut(swapAmountIn, reserveA, reserveB);\n    984:         swapTokenOut = isInputA ? pair.token1() : pair.token0();\n    985:     }\n    986: \n    987:     function checkWETH() public view returns (bool isValid) {"
+      },
+      {
+        "sink_line": 994,
+        "start": 986,
+        "end": 998,
+        "snippet": "    986: \n    987:     function checkWETH() public view returns (bool isValid) {\n    988:         isValid = WETH == router.WETH();\n    989:         require(isValid, 'Beefy: WETH address not matching Router.WETH()');\n    990:     }\n    991: \n    992:     function _approveTokenIfNeeded(address token, address spender) private {\n    993:         if (IERC20(token).allowance(address(this), spender) == 0) {\n>>  994:             IERC20(token).safeApprove(spender, type(uint).max);\n    995:         }\n    996:     }\n    997: \n    998: }"
+      }
+    ]
+  },
+  {
+    "file": "contracts/archive/strategies/Cometh/StrategyMultiRewardsPolygonLP.sol",
+    "total_lines": 442,
+    "functions": [
+      {
+        "line": 83,
+        "name": "constructor",
+        "header": "constructor(          address _want,          address _rewardPool,"
+      },
+      {
+        "line": 159,
+        "name": "deposit",
+        "header": "function deposit() public whenNotPaused {          uint256 wantBal = IERC20(want).balanceOf(address(this));"
+      },
+      {
+        "line": 175,
+        "name": "withdraw",
+        "header": "function withdraw(uint256 _amount) external {          require(msg.sender == vault, \"!vault\");"
+      },
+      {
+        "line": 221,
+        "name": "harvest",
+        "header": "function harvest() external whenNotPaused {          IRewardPool(rewardPool).getReward();          chargeFees();"
+      },
+      {
+        "line": 241,
+        "name": "chargeFees",
+        "header": "function chargeFees() internal {          uint256 toOutput = IERC20(secondOutput).balanceOf(address(this));          IUniswapRouterETH(unirouter).swapExactTokensForTokens(toOutput, 0, secondOutputToOutputRoute, address(this), now);"
+      },
+      {
+        "line": 281,
+        "name": "addLiquidity",
+        "header": "function addLiquidity() internal {          uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);"
+      },
+      {
+        "line": 315,
+        "name": "balanceOf",
+        "header": "function balanceOf() public view returns (uint256) {          return balanceOfWant().add(balanceOfPool());      }"
+      },
+      {
+        "line": 325,
+        "name": "balanceOfWant",
+        "header": "function balanceOfWant() public view returns (uint256) {          return IERC20(want).balanceOf(address(this));      }"
+      },
+      {
+        "line": 335,
+        "name": "balanceOfPool",
+        "header": "function balanceOfPool() public view returns (uint256) {          return IRewardPool(rewardPool).balanceOf(address(this));      }"
+      },
+      {
+        "line": 345,
+        "name": "retireStrat",
+        "header": "function retireStrat() external {          require(msg.sender == vault, \"!vault\");"
+      },
+      {
+        "line": 365,
+        "name": "panic",
+        "header": "function panic() public onlyManager {          pause();          IRewardPool(rewardPool).withdraw(balanceOfPool());"
+      },
+      {
+        "line": 375,
+        "name": "pause",
+        "header": "function pause() public onlyManager {          _pause();"
+      },
+      {
+        "line": 387,
+        "name": "unpause",
+        "header": "function unpause() external onlyManager {          _unpause();"
+      },
+      {
+        "line": 403,
+        "name": "_giveAllowances",
+        "header": "function _giveAllowances() internal {          IERC20(want).safeApprove(rewardPool, uint256(-1));          IERC20(output).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "line": 427,
+        "name": "_removeAllowances",
+        "header": "function _removeAllowances() internal {          IERC20(want).safeApprove(rewardPool, 0);          IERC20(output).safeApprove(unirouter, 0);"
+      }
+    ],
+    "sink_windows": [
+      {
+        "sink_line": 161,
+        "start": 153,
+        "end": 169,
+        "snippet": "    153:     }\n    154: \n    155: \n    156: \n    157:     // puts the funds to work\n    158: \n    159:     function deposit() public whenNotPaused {\n    160: \n>>  161:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    162: \n    163: \n    164: \n    165:         if (wantBal > 0) {\n    166: \n    167:             IRewardPool(rewardPool).stake(wantBal);\n    168: \n    169:         }"
+      },
+      {
+        "sink_line": 181,
+        "start": 173,
+        "end": 189,
+        "snippet": "    173: \n    174: \n    175:     function withdraw(uint256 _amount) external {\n    176: \n    177:         require(msg.sender == vault, \"!vault\");\n    178: \n    179: \n    180: \n>>  181:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    182: \n    183: \n    184: \n    185:         if (wantBal < _amount) {\n    186: \n    187:             IRewardPool(rewardPool).withdraw(_amount.sub(wantBal));\n    188: \n    189:             wantBal = IERC20(want).balanceOf(address(this));"
+      },
+      {
+        "sink_line": 189,
+        "start": 181,
+        "end": 197,
+        "snippet": "    181:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    182: \n    183: \n    184: \n    185:         if (wantBal < _amount) {\n    186: \n    187:             IRewardPool(rewardPool).withdraw(_amount.sub(wantBal));\n    188: \n>>  189:             wantBal = IERC20(want).balanceOf(address(this));\n    190: \n    191:         }\n    192: \n    193: \n    194: \n    195:         if (wantBal > _amount) {\n    196: \n    197:             wantBal = _amount;"
+      },
+      {
+        "sink_line": 205,
+        "start": 197,
+        "end": 213,
+        "snippet": "    197:             wantBal = _amount;\n    198: \n    199:         }\n    200: \n    201: \n    202: \n    203:         if (tx.origin == owner() || paused()) {\n    204: \n>>  205:             IERC20(want).safeTransfer(vault, wantBal);\n    206: \n    207:         } else {\n    208: \n    209:             uint256 withdrawalFee = wantBal.mul(WITHDRAWAL_FEE_CAP).div(WITHDRAWAL_MAX);\n    210: \n    211:             IERC20(want).safeTransfer(vault, wantBal.sub(withdrawalFee));\n    212: \n    213:         }"
+      },
+      {
+        "sink_line": 211,
+        "start": 203,
+        "end": 219,
+        "snippet": "    203:         if (tx.origin == owner() || paused()) {\n    204: \n    205:             IERC20(want).safeTransfer(vault, wantBal);\n    206: \n    207:         } else {\n    208: \n    209:             uint256 withdrawalFee = wantBal.mul(WITHDRAWAL_FEE_CAP).div(WITHDRAWAL_MAX);\n    210: \n>>  211:             IERC20(want).safeTransfer(vault, wantBal.sub(withdrawalFee));\n    212: \n    213:         }\n    214: \n    215:     }\n    216: \n    217: \n    218: \n    219:     // compounds earnings and charges performance fee"
+      },
+      {
+        "sink_line": 227,
+        "start": 219,
+        "end": 235,
+        "snippet": "    219:     // compounds earnings and charges performance fee\n    220: \n    221:     function harvest() external whenNotPaused {\n    222: \n    223:         IRewardPool(rewardPool).getReward();\n    224: \n    225:         chargeFees();\n    226: \n>>  227:         addLiquidity();\n    228: \n    229:         deposit();\n    230: \n    231: \n    232: \n    233:         emit StratHarvest(msg.sender);\n    234: \n    235:     }"
+      },
+      {
+        "sink_line": 243,
+        "start": 235,
+        "end": 251,
+        "snippet": "    235:     }\n    236: \n    237: \n    238: \n    239:     // performance fees\n    240: \n    241:     function chargeFees() internal {\n    242: \n>>  243:         uint256 toOutput = IERC20(secondOutput).balanceOf(address(this));\n    244: \n    245:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toOutput, 0, secondOutputToOutputRoute, address(this), now);\n    246: \n    247:         \n    248: \n    249:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    250: \n    251:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);"
+      },
+      {
+        "sink_line": 245,
+        "start": 237,
+        "end": 253,
+        "snippet": "    237: \n    238: \n    239:     // performance fees\n    240: \n    241:     function chargeFees() internal {\n    242: \n    243:         uint256 toOutput = IERC20(secondOutput).balanceOf(address(this));\n    244: \n>>  245:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toOutput, 0, secondOutputToOutputRoute, address(this), now);\n    246: \n    247:         \n    248: \n    249:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    250: \n    251:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    252: \n    253: "
+      },
+      {
+        "sink_line": 249,
+        "start": 241,
+        "end": 257,
+        "snippet": "    241:     function chargeFees() internal {\n    242: \n    243:         uint256 toOutput = IERC20(secondOutput).balanceOf(address(this));\n    244: \n    245:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toOutput, 0, secondOutputToOutputRoute, address(this), now);\n    246: \n    247:         \n    248: \n>>  249:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    250: \n    251:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    252: \n    253: \n    254: \n    255:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    256: \n    257: "
+      },
+      {
+        "sink_line": 251,
+        "start": 243,
+        "end": 259,
+        "snippet": "    243:         uint256 toOutput = IERC20(secondOutput).balanceOf(address(this));\n    244: \n    245:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toOutput, 0, secondOutputToOutputRoute, address(this), now);\n    246: \n    247:         \n    248: \n    249:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    250: \n>>  251:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    252: \n    253: \n    254: \n    255:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    256: \n    257: \n    258: \n    259:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);"
+      },
+      {
+        "sink_line": 255,
+        "start": 247,
+        "end": 263,
+        "snippet": "    247:         \n    248: \n    249:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    250: \n    251:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    252: \n    253: \n    254: \n>>  255:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    256: \n    257: \n    258: \n    259:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    260: \n    261:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    262: \n    263: "
+      },
+      {
+        "sink_line": 261,
+        "start": 253,
+        "end": 269,
+        "snippet": "    253: \n    254: \n    255:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    256: \n    257: \n    258: \n    259:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    260: \n>>  261:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    262: \n    263: \n    264: \n    265:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    266: \n    267:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    268: \n    269: "
+      },
+      {
+        "sink_line": 267,
+        "start": 259,
+        "end": 275,
+        "snippet": "    259:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    260: \n    261:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    262: \n    263: \n    264: \n    265:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    266: \n>>  267:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    268: \n    269: \n    270: \n    271:         uint256 strategistFee = maticBal.mul(STRATEGIST_FEE).div(MAX_FEE);\n    272: \n    273:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    274: \n    275:     }"
+      },
+      {
+        "sink_line": 273,
+        "start": 265,
+        "end": 281,
+        "snippet": "    265:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    266: \n    267:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    268: \n    269: \n    270: \n    271:         uint256 strategistFee = maticBal.mul(STRATEGIST_FEE).div(MAX_FEE);\n    272: \n>>  273:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    274: \n    275:     }\n    276: \n    277: \n    278: \n    279:     // Adds liquidity to AMM and gets more LP tokens.\n    280: \n    281:     function addLiquidity() internal {"
+      },
+      {
+        "sink_line": 281,
+        "start": 273,
+        "end": 289,
+        "snippet": "    273:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    274: \n    275:     }\n    276: \n    277: \n    278: \n    279:     // Adds liquidity to AMM and gets more LP tokens.\n    280: \n>>  281:     function addLiquidity() internal {\n    282: \n    283:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    284: \n    285: \n    286: \n    287:         if (lpToken0 != output) {\n    288: \n    289:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);"
+      },
+      {
+        "sink_line": 283,
+        "start": 275,
+        "end": 291,
+        "snippet": "    275:     }\n    276: \n    277: \n    278: \n    279:     // Adds liquidity to AMM and gets more LP tokens.\n    280: \n    281:     function addLiquidity() internal {\n    282: \n>>  283:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    284: \n    285: \n    286: \n    287:         if (lpToken0 != output) {\n    288: \n    289:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    290: \n    291:         }"
+      },
+      {
+        "sink_line": 289,
+        "start": 281,
+        "end": 297,
+        "snippet": "    281:     function addLiquidity() internal {\n    282: \n    283:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    284: \n    285: \n    286: \n    287:         if (lpToken0 != output) {\n    288: \n>>  289:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    290: \n    291:         }\n    292: \n    293: \n    294: \n    295:         if (lpToken1 != output) {\n    296: \n    297:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);"
+      },
+      {
+        "sink_line": 297,
+        "start": 289,
+        "end": 305,
+        "snippet": "    289:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    290: \n    291:         }\n    292: \n    293: \n    294: \n    295:         if (lpToken1 != output) {\n    296: \n>>  297:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    298: \n    299:         }\n    300: \n    301: \n    302: \n    303:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    304: \n    305:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));"
+      },
+      {
+        "sink_line": 303,
+        "start": 295,
+        "end": 311,
+        "snippet": "    295:         if (lpToken1 != output) {\n    296: \n    297:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    298: \n    299:         }\n    300: \n    301: \n    302: \n>>  303:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    304: \n    305:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    306: \n    307:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    308: \n    309:     }\n    310: \n    311: "
+      },
+      {
+        "sink_line": 305,
+        "start": 297,
+        "end": 313,
+        "snippet": "    297:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    298: \n    299:         }\n    300: \n    301: \n    302: \n    303:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    304: \n>>  305:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    306: \n    307:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    308: \n    309:     }\n    310: \n    311: \n    312: \n    313:     // calculate the total underlaying 'want' held by the strat."
+      },
+      {
+        "sink_line": 307,
+        "start": 299,
+        "end": 315,
+        "snippet": "    299:         }\n    300: \n    301: \n    302: \n    303:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    304: \n    305:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    306: \n>>  307:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    308: \n    309:     }\n    310: \n    311: \n    312: \n    313:     // calculate the total underlaying 'want' held by the strat.\n    314: \n    315:     function balanceOf() public view returns (uint256) {"
+      },
+      {
+        "sink_line": 315,
+        "start": 307,
+        "end": 323,
+        "snippet": "    307:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    308: \n    309:     }\n    310: \n    311: \n    312: \n    313:     // calculate the total underlaying 'want' held by the strat.\n    314: \n>>  315:     function balanceOf() public view returns (uint256) {\n    316: \n    317:         return balanceOfWant().add(balanceOfPool());\n    318: \n    319:     }\n    320: \n    321: \n    322: \n    323:     // it calculates how much 'want' this contract holds."
+      },
+      {
+        "sink_line": 327,
+        "start": 319,
+        "end": 335,
+        "snippet": "    319:     }\n    320: \n    321: \n    322: \n    323:     // it calculates how much 'want' this contract holds.\n    324: \n    325:     function balanceOfWant() public view returns (uint256) {\n    326: \n>>  327:         return IERC20(want).balanceOf(address(this));\n    328: \n    329:     }\n    330: \n    331: \n    332: \n    333:     // it calculates how much 'want' the strategy has working in the farm.\n    334: \n    335:     function balanceOfPool() public view returns (uint256) {"
+      },
+      {
+        "sink_line": 337,
+        "start": 329,
+        "end": 345,
+        "snippet": "    329:     }\n    330: \n    331: \n    332: \n    333:     // it calculates how much 'want' the strategy has working in the farm.\n    334: \n    335:     function balanceOfPool() public view returns (uint256) {\n    336: \n>>  337:         return IRewardPool(rewardPool).balanceOf(address(this));\n    338: \n    339:     }\n    340: \n    341: \n    342: \n    343:     // called as part of strat migration. Sends all the available funds back to the vault.\n    344: \n    345:     function retireStrat() external {"
+      },
+      {
+        "sink_line": 355,
+        "start": 347,
+        "end": 363,
+        "snippet": "    347:         require(msg.sender == vault, \"!vault\");\n    348: \n    349: \n    350: \n    351:         IRewardPool(rewardPool).withdraw(balanceOfPool());\n    352: \n    353: \n    354: \n>>  355:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    356: \n    357:         IERC20(want).transfer(vault, wantBal);\n    358: \n    359:     }\n    360: \n    361: \n    362: \n    363:     // pauses deposits and withdraws all funds from third party systems."
+      },
+      {
+        "sink_line": 405,
+        "start": 397,
+        "end": 413,
+        "snippet": "    397:         deposit();\n    398: \n    399:     }\n    400: \n    401: \n    402: \n    403:     function _giveAllowances() internal {\n    404: \n>>  405:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    406: \n    407:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    408: \n    409:         IERC20(secondOutput).safeApprove(unirouter, uint256(-1));\n    410: \n    411: \n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);"
+      },
+      {
+        "sink_line": 407,
+        "start": 399,
+        "end": 415,
+        "snippet": "    399:     }\n    400: \n    401: \n    402: \n    403:     function _giveAllowances() internal {\n    404: \n    405:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    406: \n>>  407:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    408: \n    409:         IERC20(secondOutput).safeApprove(unirouter, uint256(-1));\n    410: \n    411: \n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "sink_line": 409,
+        "start": 401,
+        "end": 417,
+        "snippet": "    401: \n    402: \n    403:     function _giveAllowances() internal {\n    404: \n    405:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    406: \n    407:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    408: \n>>  409:         IERC20(secondOutput).safeApprove(unirouter, uint256(-1));\n    410: \n    411: \n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    416: \n    417: "
+      },
+      {
+        "sink_line": 413,
+        "start": 405,
+        "end": 421,
+        "snippet": "    405:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    406: \n    407:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    408: \n    409:         IERC20(secondOutput).safeApprove(unirouter, uint256(-1));\n    410: \n    411: \n    412: \n>>  413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    416: \n    417: \n    418: \n    419:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    420: \n    421:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "sink_line": 415,
+        "start": 407,
+        "end": 423,
+        "snippet": "    407:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    408: \n    409:         IERC20(secondOutput).safeApprove(unirouter, uint256(-1));\n    410: \n    411: \n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n>>  415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    416: \n    417: \n    418: \n    419:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    420: \n    421:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    422: \n    423:     }"
+      },
+      {
+        "sink_line": 419,
+        "start": 411,
+        "end": 427,
+        "snippet": "    411: \n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    416: \n    417: \n    418: \n>>  419:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    420: \n    421:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    422: \n    423:     }\n    424: \n    425: \n    426: \n    427:     function _removeAllowances() internal {"
+      },
+      {
+        "sink_line": 421,
+        "start": 413,
+        "end": 429,
+        "snippet": "    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    416: \n    417: \n    418: \n    419:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    420: \n>>  421:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    422: \n    423:     }\n    424: \n    425: \n    426: \n    427:     function _removeAllowances() internal {\n    428: \n    429:         IERC20(want).safeApprove(rewardPool, 0);"
+      },
+      {
+        "sink_line": 429,
+        "start": 421,
+        "end": 437,
+        "snippet": "    421:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    422: \n    423:     }\n    424: \n    425: \n    426: \n    427:     function _removeAllowances() internal {\n    428: \n>>  429:         IERC20(want).safeApprove(rewardPool, 0);\n    430: \n    431:         IERC20(output).safeApprove(unirouter, 0);\n    432: \n    433:         IERC20(secondOutput).safeApprove(unirouter, 0);\n    434: \n    435:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    436: \n    437:         IERC20(lpToken1).safeApprove(unirouter, 0);"
+      },
+      {
+        "sink_line": 431,
+        "start": 423,
+        "end": 439,
+        "snippet": "    423:     }\n    424: \n    425: \n    426: \n    427:     function _removeAllowances() internal {\n    428: \n    429:         IERC20(want).safeApprove(rewardPool, 0);\n    430: \n>>  431:         IERC20(output).safeApprove(unirouter, 0);\n    432: \n    433:         IERC20(secondOutput).safeApprove(unirouter, 0);\n    434: \n    435:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    436: \n    437:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    438: \n    439:     }"
+      },
+      {
+        "sink_line": 433,
+        "start": 425,
+        "end": 441,
+        "snippet": "    425: \n    426: \n    427:     function _removeAllowances() internal {\n    428: \n    429:         IERC20(want).safeApprove(rewardPool, 0);\n    430: \n    431:         IERC20(output).safeApprove(unirouter, 0);\n    432: \n>>  433:         IERC20(secondOutput).safeApprove(unirouter, 0);\n    434: \n    435:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    436: \n    437:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    438: \n    439:     }\n    440: \n    441: }"
+      },
+      {
+        "sink_line": 435,
+        "start": 427,
+        "end": 442,
+        "snippet": "    427:     function _removeAllowances() internal {\n    428: \n    429:         IERC20(want).safeApprove(rewardPool, 0);\n    430: \n    431:         IERC20(output).safeApprove(unirouter, 0);\n    432: \n    433:         IERC20(secondOutput).safeApprove(unirouter, 0);\n    434: \n>>  435:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    436: \n    437:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    438: \n    439:     }\n    440: \n    441: }\n    442: "
+      },
+      {
+        "sink_line": 437,
+        "start": 429,
+        "end": 442,
+        "snippet": "    429:         IERC20(want).safeApprove(rewardPool, 0);\n    430: \n    431:         IERC20(output).safeApprove(unirouter, 0);\n    432: \n    433:         IERC20(secondOutput).safeApprove(unirouter, 0);\n    434: \n    435:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    436: \n>>  437:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    438: \n    439:     }\n    440: \n    441: }\n    442: "
+      }
+    ]
+  },
+  {
+    "file": "contracts/archive/strategies/Cometh/StrategyRewardPoolPolygonLP.sol",
+    "total_lines": 420,
+    "functions": [
+      {
+        "line": 79,
+        "name": "constructor",
+        "header": "constructor(          address _want,          address _rewardPool,"
+      },
+      {
+        "line": 147,
+        "name": "deposit",
+        "header": "function deposit() public whenNotPaused {          uint256 wantBal = IERC20(want).balanceOf(address(this));"
+      },
+      {
+        "line": 163,
+        "name": "withdraw",
+        "header": "function withdraw(uint256 _amount) external {          require(msg.sender == vault, \"!vault\");"
+      },
+      {
+        "line": 209,
+        "name": "harvest",
+        "header": "function harvest() external whenNotPaused {          IRewardPool(rewardPool).getReward();          chargeFees();"
+      },
+      {
+        "line": 229,
+        "name": "chargeFees",
+        "header": "function chargeFees() internal {          uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);          IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);"
+      },
+      {
+        "line": 263,
+        "name": "addLiquidity",
+        "header": "function addLiquidity() internal {          uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);"
+      },
+      {
+        "line": 297,
+        "name": "balanceOf",
+        "header": "function balanceOf() public view returns (uint256) {          return balanceOfWant().add(balanceOfPool());      }"
+      },
+      {
+        "line": 307,
+        "name": "balanceOfWant",
+        "header": "function balanceOfWant() public view returns (uint256) {          return IERC20(want).balanceOf(address(this));      }"
+      },
+      {
+        "line": 317,
+        "name": "balanceOfPool",
+        "header": "function balanceOfPool() public view returns (uint256) {          return IRewardPool(rewardPool).balanceOf(address(this));      }"
+      },
+      {
+        "line": 327,
+        "name": "retireStrat",
+        "header": "function retireStrat() external {          require(msg.sender == vault, \"!vault\");"
+      },
+      {
+        "line": 347,
+        "name": "panic",
+        "header": "function panic() public onlyManager {          pause();          IRewardPool(rewardPool).withdraw(balanceOfPool());"
+      },
+      {
+        "line": 357,
+        "name": "pause",
+        "header": "function pause() public onlyManager {          _pause();"
+      },
+      {
+        "line": 369,
+        "name": "unpause",
+        "header": "function unpause() external onlyManager {          _unpause();"
+      },
+      {
+        "line": 385,
+        "name": "_giveAllowances",
+        "header": "function _giveAllowances() internal {          IERC20(want).safeApprove(rewardPool, uint256(-1));          IERC20(output).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "line": 407,
+        "name": "_removeAllowances",
+        "header": "function _removeAllowances() internal {          IERC20(want).safeApprove(rewardPool, 0);          IERC20(output).safeApprove(unirouter, 0);"
+      }
+    ],
+    "sink_windows": [
+      {
+        "sink_line": 149,
+        "start": 141,
+        "end": 157,
+        "snippet": "    141:     }\n    142: \n    143: \n    144: \n    145:     // puts the funds to work\n    146: \n    147:     function deposit() public whenNotPaused {\n    148: \n>>  149:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    150: \n    151: \n    152: \n    153:         if (wantBal > 0) {\n    154: \n    155:             IRewardPool(rewardPool).stake(wantBal);\n    156: \n    157:         }"
+      },
+      {
+        "sink_line": 169,
+        "start": 161,
+        "end": 177,
+        "snippet": "    161: \n    162: \n    163:     function withdraw(uint256 _amount) external {\n    164: \n    165:         require(msg.sender == vault, \"!vault\");\n    166: \n    167: \n    168: \n>>  169:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    170: \n    171: \n    172: \n    173:         if (wantBal < _amount) {\n    174: \n    175:             IRewardPool(rewardPool).withdraw(_amount.sub(wantBal));\n    176: \n    177:             wantBal = IERC20(want).balanceOf(address(this));"
+      },
+      {
+        "sink_line": 177,
+        "start": 169,
+        "end": 185,
+        "snippet": "    169:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    170: \n    171: \n    172: \n    173:         if (wantBal < _amount) {\n    174: \n    175:             IRewardPool(rewardPool).withdraw(_amount.sub(wantBal));\n    176: \n>>  177:             wantBal = IERC20(want).balanceOf(address(this));\n    178: \n    179:         }\n    180: \n    181: \n    182: \n    183:         if (wantBal > _amount) {\n    184: \n    185:             wantBal = _amount;"
+      },
+      {
+        "sink_line": 193,
+        "start": 185,
+        "end": 201,
+        "snippet": "    185:             wantBal = _amount;\n    186: \n    187:         }\n    188: \n    189: \n    190: \n    191:         if (tx.origin == owner() || paused()) {\n    192: \n>>  193:             IERC20(want).safeTransfer(vault, wantBal);\n    194: \n    195:         } else {\n    196: \n    197:             uint256 withdrawalFee = wantBal.mul(WITHDRAWAL_FEE_CAP).div(WITHDRAWAL_MAX);\n    198: \n    199:             IERC20(want).safeTransfer(vault, wantBal.sub(withdrawalFee));\n    200: \n    201:         }"
+      },
+      {
+        "sink_line": 199,
+        "start": 191,
+        "end": 207,
+        "snippet": "    191:         if (tx.origin == owner() || paused()) {\n    192: \n    193:             IERC20(want).safeTransfer(vault, wantBal);\n    194: \n    195:         } else {\n    196: \n    197:             uint256 withdrawalFee = wantBal.mul(WITHDRAWAL_FEE_CAP).div(WITHDRAWAL_MAX);\n    198: \n>>  199:             IERC20(want).safeTransfer(vault, wantBal.sub(withdrawalFee));\n    200: \n    201:         }\n    202: \n    203:     }\n    204: \n    205: \n    206: \n    207:     // compounds earnings and charges performance fee"
+      },
+      {
+        "sink_line": 215,
+        "start": 207,
+        "end": 223,
+        "snippet": "    207:     // compounds earnings and charges performance fee\n    208: \n    209:     function harvest() external whenNotPaused {\n    210: \n    211:         IRewardPool(rewardPool).getReward();\n    212: \n    213:         chargeFees();\n    214: \n>>  215:         addLiquidity();\n    216: \n    217:         deposit();\n    218: \n    219: \n    220: \n    221:         emit StratHarvest(msg.sender);\n    222: \n    223:     }"
+      },
+      {
+        "sink_line": 231,
+        "start": 223,
+        "end": 239,
+        "snippet": "    223:     }\n    224: \n    225: \n    226: \n    227:     // performance fees\n    228: \n    229:     function chargeFees() internal {\n    230: \n>>  231:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    232: \n    233:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    234: \n    235: \n    236: \n    237:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    238: \n    239: "
+      },
+      {
+        "sink_line": 233,
+        "start": 225,
+        "end": 241,
+        "snippet": "    225: \n    226: \n    227:     // performance fees\n    228: \n    229:     function chargeFees() internal {\n    230: \n    231:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    232: \n>>  233:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    234: \n    235: \n    236: \n    237:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    238: \n    239: \n    240: \n    241:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);"
+      },
+      {
+        "sink_line": 237,
+        "start": 229,
+        "end": 245,
+        "snippet": "    229:     function chargeFees() internal {\n    230: \n    231:         uint256 toMatic = IERC20(output).balanceOf(address(this)).mul(45).div(1000);\n    232: \n    233:         IUniswapRouterETH(unirouter).swapExactTokensForTokens(toMatic, 0, outputToMaticRoute, address(this), now);\n    234: \n    235: \n    236: \n>>  237:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    238: \n    239: \n    240: \n    241:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    242: \n    243:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    244: \n    245: "
+      },
+      {
+        "sink_line": 243,
+        "start": 235,
+        "end": 251,
+        "snippet": "    235: \n    236: \n    237:         uint256 maticBal = IERC20(matic).balanceOf(address(this));\n    238: \n    239: \n    240: \n    241:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    242: \n>>  243:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    244: \n    245: \n    246: \n    247:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    248: \n    249:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    250: \n    251: "
+      },
+      {
+        "sink_line": 249,
+        "start": 241,
+        "end": 257,
+        "snippet": "    241:         uint256 callFeeAmount = maticBal.mul(callFee).div(MAX_FEE);\n    242: \n    243:         IERC20(matic).safeTransfer(tx.origin, callFeeAmount);\n    244: \n    245: \n    246: \n    247:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    248: \n>>  249:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    250: \n    251: \n    252: \n    253:         uint256 strategistFee = maticBal.mul(STRATEGIST_FEE).div(MAX_FEE);\n    254: \n    255:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    256: \n    257:     }"
+      },
+      {
+        "sink_line": 255,
+        "start": 247,
+        "end": 263,
+        "snippet": "    247:         uint256 beefyFeeAmount = maticBal.mul(beefyFee).div(MAX_FEE);\n    248: \n    249:         IERC20(matic).safeTransfer(beefyFeeRecipient, beefyFeeAmount);\n    250: \n    251: \n    252: \n    253:         uint256 strategistFee = maticBal.mul(STRATEGIST_FEE).div(MAX_FEE);\n    254: \n>>  255:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    256: \n    257:     }\n    258: \n    259: \n    260: \n    261:     // Adds liquidity to AMM and gets more LP tokens.\n    262: \n    263:     function addLiquidity() internal {"
+      },
+      {
+        "sink_line": 263,
+        "start": 255,
+        "end": 271,
+        "snippet": "    255:         IERC20(matic).safeTransfer(strategist, strategistFee);\n    256: \n    257:     }\n    258: \n    259: \n    260: \n    261:     // Adds liquidity to AMM and gets more LP tokens.\n    262: \n>>  263:     function addLiquidity() internal {\n    264: \n    265:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    266: \n    267: \n    268: \n    269:         if (lpToken0 != output) {\n    270: \n    271:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);"
+      },
+      {
+        "sink_line": 265,
+        "start": 257,
+        "end": 273,
+        "snippet": "    257:     }\n    258: \n    259: \n    260: \n    261:     // Adds liquidity to AMM and gets more LP tokens.\n    262: \n    263:     function addLiquidity() internal {\n    264: \n>>  265:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    266: \n    267: \n    268: \n    269:         if (lpToken0 != output) {\n    270: \n    271:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    272: \n    273:         }"
+      },
+      {
+        "sink_line": 271,
+        "start": 263,
+        "end": 279,
+        "snippet": "    263:     function addLiquidity() internal {\n    264: \n    265:         uint256 outputHalf = IERC20(output).balanceOf(address(this)).div(2);\n    266: \n    267: \n    268: \n    269:         if (lpToken0 != output) {\n    270: \n>>  271:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    272: \n    273:         }\n    274: \n    275: \n    276: \n    277:         if (lpToken1 != output) {\n    278: \n    279:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);"
+      },
+      {
+        "sink_line": 279,
+        "start": 271,
+        "end": 287,
+        "snippet": "    271:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp0Route, address(this), now);\n    272: \n    273:         }\n    274: \n    275: \n    276: \n    277:         if (lpToken1 != output) {\n    278: \n>>  279:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    280: \n    281:         }\n    282: \n    283: \n    284: \n    285:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    286: \n    287:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));"
+      },
+      {
+        "sink_line": 285,
+        "start": 277,
+        "end": 293,
+        "snippet": "    277:         if (lpToken1 != output) {\n    278: \n    279:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    280: \n    281:         }\n    282: \n    283: \n    284: \n>>  285:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    286: \n    287:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    288: \n    289:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    290: \n    291:     }\n    292: \n    293: "
+      },
+      {
+        "sink_line": 287,
+        "start": 279,
+        "end": 295,
+        "snippet": "    279:             IUniswapRouterETH(unirouter).swapExactTokensForTokens(outputHalf, 0, outputToLp1Route, address(this), now);\n    280: \n    281:         }\n    282: \n    283: \n    284: \n    285:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    286: \n>>  287:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    288: \n    289:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    290: \n    291:     }\n    292: \n    293: \n    294: \n    295:     // calculate the total underlaying 'want' held by the strat."
+      },
+      {
+        "sink_line": 289,
+        "start": 281,
+        "end": 297,
+        "snippet": "    281:         }\n    282: \n    283: \n    284: \n    285:         uint256 lp0Bal = IERC20(lpToken0).balanceOf(address(this));\n    286: \n    287:         uint256 lp1Bal = IERC20(lpToken1).balanceOf(address(this));\n    288: \n>>  289:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    290: \n    291:     }\n    292: \n    293: \n    294: \n    295:     // calculate the total underlaying 'want' held by the strat.\n    296: \n    297:     function balanceOf() public view returns (uint256) {"
+      },
+      {
+        "sink_line": 297,
+        "start": 289,
+        "end": 305,
+        "snippet": "    289:         IUniswapRouterETH(unirouter).addLiquidity(lpToken0, lpToken1, lp0Bal, lp1Bal, 1, 1, address(this), now);\n    290: \n    291:     }\n    292: \n    293: \n    294: \n    295:     // calculate the total underlaying 'want' held by the strat.\n    296: \n>>  297:     function balanceOf() public view returns (uint256) {\n    298: \n    299:         return balanceOfWant().add(balanceOfPool());\n    300: \n    301:     }\n    302: \n    303: \n    304: \n    305:     // it calculates how much 'want' this contract holds."
+      },
+      {
+        "sink_line": 309,
+        "start": 301,
+        "end": 317,
+        "snippet": "    301:     }\n    302: \n    303: \n    304: \n    305:     // it calculates how much 'want' this contract holds.\n    306: \n    307:     function balanceOfWant() public view returns (uint256) {\n    308: \n>>  309:         return IERC20(want).balanceOf(address(this));\n    310: \n    311:     }\n    312: \n    313: \n    314: \n    315:     // it calculates how much 'want' the strategy has working in the farm.\n    316: \n    317:     function balanceOfPool() public view returns (uint256) {"
+      },
+      {
+        "sink_line": 319,
+        "start": 311,
+        "end": 327,
+        "snippet": "    311:     }\n    312: \n    313: \n    314: \n    315:     // it calculates how much 'want' the strategy has working in the farm.\n    316: \n    317:     function balanceOfPool() public view returns (uint256) {\n    318: \n>>  319:         return IRewardPool(rewardPool).balanceOf(address(this));\n    320: \n    321:     }\n    322: \n    323: \n    324: \n    325:     // called as part of strat migration. Sends all the available funds back to the vault.\n    326: \n    327:     function retireStrat() external {"
+      },
+      {
+        "sink_line": 337,
+        "start": 329,
+        "end": 345,
+        "snippet": "    329:         require(msg.sender == vault, \"!vault\");\n    330: \n    331: \n    332: \n    333:         IRewardPool(rewardPool).withdraw(balanceOfPool());\n    334: \n    335: \n    336: \n>>  337:         uint256 wantBal = IERC20(want).balanceOf(address(this));\n    338: \n    339:         IERC20(want).transfer(vault, wantBal);\n    340: \n    341:     }\n    342: \n    343: \n    344: \n    345:     // pauses deposits and withdraws all funds from third party systems."
+      },
+      {
+        "sink_line": 387,
+        "start": 379,
+        "end": 395,
+        "snippet": "    379:         deposit();\n    380: \n    381:     }\n    382: \n    383: \n    384: \n    385:     function _giveAllowances() internal {\n    386: \n>>  387:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    388: \n    389:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    390: \n    391: \n    392: \n    393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n    395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "sink_line": 389,
+        "start": 381,
+        "end": 397,
+        "snippet": "    381:     }\n    382: \n    383: \n    384: \n    385:     function _giveAllowances() internal {\n    386: \n    387:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    388: \n>>  389:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    390: \n    391: \n    392: \n    393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n    395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    396: \n    397: "
+      },
+      {
+        "sink_line": 393,
+        "start": 385,
+        "end": 401,
+        "snippet": "    385:     function _giveAllowances() internal {\n    386: \n    387:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    388: \n    389:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    390: \n    391: \n    392: \n>>  393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n    395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    396: \n    397: \n    398: \n    399:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    400: \n    401:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));"
+      },
+      {
+        "sink_line": 395,
+        "start": 387,
+        "end": 403,
+        "snippet": "    387:         IERC20(want).safeApprove(rewardPool, uint256(-1));\n    388: \n    389:         IERC20(output).safeApprove(unirouter, uint256(-1));\n    390: \n    391: \n    392: \n    393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n>>  395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    396: \n    397: \n    398: \n    399:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    400: \n    401:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    402: \n    403:     }"
+      },
+      {
+        "sink_line": 399,
+        "start": 391,
+        "end": 407,
+        "snippet": "    391: \n    392: \n    393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n    395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    396: \n    397: \n    398: \n>>  399:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    400: \n    401:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    402: \n    403:     }\n    404: \n    405: \n    406: \n    407:     function _removeAllowances() internal {"
+      },
+      {
+        "sink_line": 401,
+        "start": 393,
+        "end": 409,
+        "snippet": "    393:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    394: \n    395:         IERC20(lpToken0).safeApprove(unirouter, uint256(-1));\n    396: \n    397: \n    398: \n    399:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    400: \n>>  401:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    402: \n    403:     }\n    404: \n    405: \n    406: \n    407:     function _removeAllowances() internal {\n    408: \n    409:         IERC20(want).safeApprove(rewardPool, 0);"
+      },
+      {
+        "sink_line": 409,
+        "start": 401,
+        "end": 417,
+        "snippet": "    401:         IERC20(lpToken1).safeApprove(unirouter, uint256(-1));\n    402: \n    403:     }\n    404: \n    405: \n    406: \n    407:     function _removeAllowances() internal {\n    408: \n>>  409:         IERC20(want).safeApprove(rewardPool, 0);\n    410: \n    411:         IERC20(output).safeApprove(unirouter, 0);\n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    416: \n    417:     }"
+      },
+      {
+        "sink_line": 411,
+        "start": 403,
+        "end": 419,
+        "snippet": "    403:     }\n    404: \n    405: \n    406: \n    407:     function _removeAllowances() internal {\n    408: \n    409:         IERC20(want).safeApprove(rewardPool, 0);\n    410: \n>>  411:         IERC20(output).safeApprove(unirouter, 0);\n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    416: \n    417:     }\n    418: \n    419: }"
+      },
+      {
+        "sink_line": 413,
+        "start": 405,
+        "end": 420,
+        "snippet": "    405: \n    406: \n    407:     function _removeAllowances() internal {\n    408: \n    409:         IERC20(want).safeApprove(rewardPool, 0);\n    410: \n    411:         IERC20(output).safeApprove(unirouter, 0);\n    412: \n>>  413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n    415:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    416: \n    417:     }\n    418: \n    419: }\n    420: "
+      },
+      {
+        "sink_line": 415,
+        "start": 407,
+        "end": 420,
+        "snippet": "    407:     function _removeAllowances() internal {\n    408: \n    409:         IERC20(want).safeApprove(rewardPool, 0);\n    410: \n    411:         IERC20(output).safeApprove(unirouter, 0);\n    412: \n    413:         IERC20(lpToken0).safeApprove(unirouter, 0);\n    414: \n>>  415:         IERC20(lpToken1).safeApprove(unirouter, 0);\n    416: \n    417:     }\n    418: \n    419: }\n    420: "
+      }
+    ]
+  },
+  {
+    "file": "contracts/archive/vaults/BeefyVaultV6.sol",
+    "total_lines": 203,
+    "functions": [
+      {
+        "line": 47,
+        "name": "constructor",
+        "header": "constructor (         IStrategy _strategy,         string memory _name,         string memory _symbol,         uint256 _approvalDelay"
+      },
+      {
+        "line": 60,
+        "name": "want",
+        "header": "function want() public view returns (IERC20) {         return IERC20(strategy.want());     }      /**"
+      },
+      {
+        "line": 69,
+        "name": "balance",
+        "header": "function balance() public view returns (uint) {         return want().balanceOf(address(this)).add(IStrategy(strategy).balanceOf());     }      /**"
+      },
+      {
+        "line": 79,
+        "name": "available",
+        "header": "function available() public view returns (uint256) {         return want().balanceOf(address(this));     }      /**"
+      },
+      {
+        "line": 87,
+        "name": "getPricePerFullShare",
+        "header": "function getPricePerFullShare() public view returns (uint256) {         return totalSupply() == 0 ? 1e18 : balance().mul(1e18).div(totalSupply());     }      /**"
+      },
+      {
+        "line": 94,
+        "name": "depositAll",
+        "header": "function depositAll() external {         deposit(want().balanceOf(msg.sender));     }      /**"
+      },
+      {
+        "line": 102,
+        "name": "deposit",
+        "header": "function deposit(uint _amount) public nonReentrant {         strategy.beforeDeposit();          uint256 _pool = balance();         want().safeTransferFrom(msg.sender, address(this), _amount);"
+      },
+      {
+        "line": 123,
+        "name": "earn",
+        "header": "function earn() public {         uint _bal = available();         want().safeTransfer(address(strategy), _bal);         strategy.deposit();     }"
+      },
+      {
+        "line": 132,
+        "name": "withdrawAll",
+        "header": "function withdrawAll() external {         withdraw(balanceOf(msg.sender));     }      /**"
+      },
+      {
+        "line": 141,
+        "name": "withdraw",
+        "header": "function withdraw(uint256 _shares) public {         uint256 r = (balance().mul(_shares)).div(totalSupply());         _burn(msg.sender, _shares);          uint b = want().balanceOf(address(this));"
+      },
+      {
+        "line": 163,
+        "name": "proposeStrat",
+        "header": "function proposeStrat(address _implementation) public onlyOwner {         require(address(this) == IStrategy(_implementation).vault(), \"Proposal not valid for this Vault\");         stratCandidate = StratCandidate({             implementation: _implementation,             proposedTime: block.timestamp"
+      },
+      {
+        "line": 179,
+        "name": "upgradeStrat",
+        "header": "function upgradeStrat() public onlyOwner {         require(stratCandidate.implementation != address(0), \"There is no candidate\");         require(stratCandidate.proposedTime.add(approvalDelay) < block.timestamp, \"Delay has not passed\");          emit UpgradeStrat(stratCandidate.implementation);"
+      },
+      {
+        "line": 197,
+        "name": "inCaseTokensGetStuck",
+        "header": "function inCaseTokensGetStuck(address _token) external onlyOwner {         require(_token != address(want()), \"!token\");          uint256 amount = IERC20(_token).balanceOf(address(this));         IERC20(_token).safeTransfer(msg.sender, amount);"
+      }
+    ],
+    "sink_windows": [
+      {
+        "sink_line": 70,
+        "start": 62,
+        "end": 78,
+        "snippet": "     62:     }\n     63: \n     64:     /**\n     65:      * @dev It calculates the total underlying value of {token} held by the system.\n     66:      * It takes into account the vault contract balance, the strategy contract balance\n     67:      *  and the balance deployed in other contracts as part of the strategy.\n     68:      */\n     69:     function balance() public view returns (uint) {\n>>   70:         return want().balanceOf(address(this)).add(IStrategy(strategy).balanceOf());\n     71:     }\n     72: \n     73:     /**\n     74:      * @dev Custom logic in here for how much the vault allows to be borrowed.\n     75:      * We return 100% of tokens for now. Under certain conditions we might\n     76:      * want to keep some of the system funds at hand in the vault, instead\n     77:      * of putting them to work.\n     78:      */"
+      },
+      {
+        "sink_line": 80,
+        "start": 72,
+        "end": 88,
+        "snippet": "     72: \n     73:     /**\n     74:      * @dev Custom logic in here for how much the vault allows to be borrowed.\n     75:      * We return 100% of tokens for now. Under certain conditions we might\n     76:      * want to keep some of the system funds at hand in the vault, instead\n     77:      * of putting them to work.\n     78:      */\n     79:     function available() public view returns (uint256) {\n>>   80:         return want().balanceOf(address(this));\n     81:     }\n     82: \n     83:     /**\n     84:      * @dev Function for various UIs to display the current value of one of our yield tokens.\n     85:      * Returns an uint256 with 18 decimals of how much underlying asset one vault share represents.\n     86:      */\n     87:     function getPricePerFullShare() public view returns (uint256) {\n     88:         return totalSupply() == 0 ? 1e18 : balance().mul(1e18).div(totalSupply());"
+      },
+      {
+        "sink_line": 95,
+        "start": 87,
+        "end": 103,
+        "snippet": "     87:     function getPricePerFullShare() public view returns (uint256) {\n     88:         return totalSupply() == 0 ? 1e18 : balance().mul(1e18).div(totalSupply());\n     89:     }\n     90: \n     91:     /**\n     92:      * @dev A helper function to call deposit() with all the sender's funds.\n     93:      */\n     94:     function depositAll() external {\n>>   95:         deposit(want().balanceOf(msg.sender));\n     96:     }\n     97: \n     98:     /**\n     99:      * @dev The entrypoint of funds into the system. People deposit with this function\n    100:      * into the vault. The vault is then in charge of sending funds into the strategy.\n    101:      */\n    102:     function deposit(uint _amount) public nonReentrant {\n    103:         strategy.beforeDeposit();"
+      },
+      {
+        "sink_line": 106,
+        "start": 98,
+        "end": 114,
+        "snippet": "     98:     /**\n     99:      * @dev The entrypoint of funds into the system. People deposit with this function\n    100:      * into the vault. The vault is then in charge of sending funds into the strategy.\n    101:      */\n    102:     function deposit(uint _amount) public nonReentrant {\n    103:         strategy.beforeDeposit();\n    104: \n    105:         uint256 _pool = balance();\n>>  106:         want().safeTransferFrom(msg.sender, address(this), _amount);\n    107:         earn();\n    108:         uint256 _after = balance();\n    109:         _amount = _after.sub(_pool); // Additional check for deflationary tokens\n    110:         uint256 shares = 0;\n    111:         if (totalSupply() == 0) {\n    112:             shares = _amount;\n    113:         } else {\n    114:             shares = (_amount.mul(totalSupply())).div(_pool);"
+      },
+      {
+        "sink_line": 125,
+        "start": 117,
+        "end": 133,
+        "snippet": "    117:     }\n    118: \n    119:     /**\n    120:      * @dev Function to send funds into the strategy and put them to work. It's primarily called\n    121:      * by the vault's deposit() function.\n    122:      */\n    123:     function earn() public {\n    124:         uint _bal = available();\n>>  125:         want().safeTransfer(address(strategy), _bal);\n    126:         strategy.deposit();\n    127:     }\n    128: \n    129:     /**\n    130:      * @dev A helper function to call withdraw() with all the sender's funds.\n    131:      */\n    132:     function withdrawAll() external {\n    133:         withdraw(balanceOf(msg.sender));"
+      },
+      {
+        "sink_line": 133,
+        "start": 125,
+        "end": 141,
+        "snippet": "    125:         want().safeTransfer(address(strategy), _bal);\n    126:         strategy.deposit();\n    127:     }\n    128: \n    129:     /**\n    130:      * @dev A helper function to call withdraw() with all the sender's funds.\n    131:      */\n    132:     function withdrawAll() external {\n>>  133:         withdraw(balanceOf(msg.sender));\n    134:     }\n    135: \n    136:     /**\n    137:      * @dev Function to exit the system. The vault will withdraw the required tokens\n    138:      * from the strategy and pay up the token holder. A proportional number of IOU\n    139:      * tokens are burned in the process.\n    140:      */\n    141:     function withdraw(uint256 _shares) public {"
+      },
+      {
+        "sink_line": 145,
+        "start": 137,
+        "end": 153,
+        "snippet": "    137:      * @dev Function to exit the system. The vault will withdraw the required tokens\n    138:      * from the strategy and pay up the token holder. A proportional number of IOU\n    139:      * tokens are burned in the process.\n    140:      */\n    141:     function withdraw(uint256 _shares) public {\n    142:         uint256 r = (balance().mul(_shares)).div(totalSupply());\n    143:         _burn(msg.sender, _shares);\n    144: \n>>  145:         uint b = want().balanceOf(address(this));\n    146:         if (b < r) {\n    147:             uint _withdraw = r.sub(b);\n    148:             strategy.withdraw(_withdraw);\n    149:             uint _after = want().balanceOf(address(this));\n    150:             uint _diff = _after.sub(b);\n    151:             if (_diff < _withdraw) {\n    152:                 r = b.add(_diff);\n    153:             }"
+      },
+      {
+        "sink_line": 149,
+        "start": 141,
+        "end": 157,
+        "snippet": "    141:     function withdraw(uint256 _shares) public {\n    142:         uint256 r = (balance().mul(_shares)).div(totalSupply());\n    143:         _burn(msg.sender, _shares);\n    144: \n    145:         uint b = want().balanceOf(address(this));\n    146:         if (b < r) {\n    147:             uint _withdraw = r.sub(b);\n    148:             strategy.withdraw(_withdraw);\n>>  149:             uint _after = want().balanceOf(address(this));\n    150:             uint _diff = _after.sub(b);\n    151:             if (_diff < _withdraw) {\n    152:                 r = b.add(_diff);\n    153:             }\n    154:         }\n    155: \n    156:         want().safeTransfer(msg.sender, r);\n    157:     }"
+      },
+      {
+        "sink_line": 156,
+        "start": 148,
+        "end": 164,
+        "snippet": "    148:             strategy.withdraw(_withdraw);\n    149:             uint _after = want().balanceOf(address(this));\n    150:             uint _diff = _after.sub(b);\n    151:             if (_diff < _withdraw) {\n    152:                 r = b.add(_diff);\n    153:             }\n    154:         }\n    155: \n>>  156:         want().safeTransfer(msg.sender, r);\n    157:     }\n    158: \n    159:     /** \n    160:      * @dev Sets the candidate for the new strat to use with this vault.\n    161:      * @param _implementation The address of the candidate strategy.  \n    162:      */\n    163:     function proposeStrat(address _implementation) public onlyOwner {\n    164:         require(address(this) == IStrategy(_implementation).vault(), \"Proposal not valid for this Vault\");"
+      },
+      {
+        "sink_line": 200,
+        "start": 192,
+        "end": 203,
+        "snippet": "    192: \n    193:     /**\n    194:      * @dev Rescues random funds stuck that the strat can't handle.\n    195:      * @param _token address of the token to rescue.\n    196:      */\n    197:     function inCaseTokensGetStuck(address _token) external onlyOwner {\n    198:         require(_token != address(want()), \"!token\");\n    199: \n>>  200:         uint256 amount = IERC20(_token).balanceOf(address(this));\n    201:         IERC20(_token).safeTransfer(msg.sender, amount);\n    202:     }\n    203: }"
+      },
+      {
+        "sink_line": 201,
+        "start": 193,
+        "end": 203,
+        "snippet": "    193:     /**\n    194:      * @dev Rescues random funds stuck that the strat can't handle.\n    195:      * @param _token address of the token to rescue.\n    196:      */\n    197:     function inCaseTokensGetStuck(address _token) external onlyOwner {\n    198:         require(_token != address(want()), \"!token\");\n    199: \n    200:         uint256 amount = IERC20(_token).balanceOf(address(this));\n>>  201:         IERC20(_token).safeTransfer(msg.sender, amount);\n    202:     }\n    203: }"
+      }
+    ]
+  }
+]
