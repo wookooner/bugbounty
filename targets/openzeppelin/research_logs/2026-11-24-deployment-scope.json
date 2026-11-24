@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "record_id": "OZ-2026-11-24-DEPLOYMENT-SCOPE",
+  "date": "2026-11-24",
+  "target": {
+    "id": "TGT-0001",
+    "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+    "version": "v5.7.0",
+    "commit": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "chain": null,
+    "deployment_address": null,
+    "reference_block": null
+  },
+  "status": "awaiting_in_scope_deployment_identifier",
+  "sources": [
+    "https://immunefi.com/bug-bounty/openzeppelin/scope/",
+    "https://immunefi.com/bug-bounty/openzeppelin/resources/",
+    "https://docs.openzeppelin.com/contracts/5.x/api/governance"
+  ],
+  "checks": [
+    {
+      "id": "scope-asset-links",
+      "observed": "공식 자산 표의 여섯 링크가 GitHub 소스 또는 릴리스를 가리킨다."
+    },
+    {
+      "id": "official-governance-reference",
+      "observed": "공식 거버넌스 문서는 일반적인 모듈 사용을 설명한다. 이번 범위의 운영 체인·주소는 식별되지 않았다."
+    }
+  ],
+  "rpc_calls": 0,
+  "findings": []
+}

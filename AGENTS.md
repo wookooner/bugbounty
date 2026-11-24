@@ -90,11 +90,12 @@
 새로운 분석 세션 시작 시 다음 자료를 확인한다.
 
 1. README.md
-2. 대상의 scope.md
-3. 대상의 status.md
-4. 기존 가설 및 연구 기록
-5. 기존 취약점 보고서
-6. 관련 지식베이스
+2. `targets/<project-name>/README.md`와 프로젝트의 `official/` 문서. 공식 Information, Scope, Resources, Source를 순서대로 읽고 확인일과 고정 버전을 기록한다.
+3. 대상의 scope.md
+4. 대상의 status.md
+5. 기존 가설 및 연구 기록
+6. 기존 취약점 보고서
+7. 관련 지식베이스
 
 이전 분석이 존재하면 불필요한 중복 분석을 피하고 기존 진행 상태에서 재개한다.
 

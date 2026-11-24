@@ -1,0 +1,105 @@
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:267:5:
+    |
+267 |     function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:388:5:
+    |
+388 |     function at(Bytes4Set storage set, uint256 index) internal view returns (bytes4) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:509:5:
+    |
+509 |     function at(AddressSet storage set, uint256 index) internal view returns (address) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:630:5:
+    |
+630 |     function at(UintSet storage set, uint256 index) internal view returns (uint256) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:795:5:
+    |
+795 |     function at(StringSet storage set, uint256 index) internal view returns (string memory) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Warning: "at" will be promoted to keyword in the future and will not be allowed as an identifier anymore.
+   --> contracts/utils/structs/EnumerableSet.sol:956:5:
+    |
+956 |     function at(BytesSet storage set, uint256 index) internal view returns (bytes memory) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Compiled 29 Solidity files successfully (evm target: osaka).
+
+
+  AccessControlEnumerable
+    ERC165
+      ✔ all interface functions are in ABI
+      when the interfaceId is supported
+        ✔ uses less than 30k gas
+        ✔ returns true
+      when the interfaceId is not supported
+        ✔ uses less than 30k
+        ✔ returns false
+    default admin
+      ✔ deployer has default admin role
+      ✔ other role's admin is the default admin role
+      ✔ default admin role's admin is itself
+    granting
+      ✔ non-admin cannot grant role to other accounts
+      ✔ accounts can be granted a role multiple times
+    revoking
+      ✔ roles that are not had can be revoked
+      with granted role
+        ✔ admin can revoke role
+        ✔ non-admin cannot revoke role
+        ✔ a role can be revoked multiple times
+    renouncing
+      ✔ roles that are not had can be renounced
+      with granted role
+        ✔ bearer can renounce role
+        ✔ only the sender can renounce their roles
+        ✔ a role can be renounced multiple times
+    setting role admin
+      ✔ a role's admin role can be changed
+      ✔ the new admin can grant roles
+      ✔ the new admin can revoke roles
+      ✔ a role's previous admins no longer grant roles
+      ✔ a role's previous admins no longer revoke roles
+    onlyRole modifier
+      ✔ do not revert if sender has role
+      ✔ revert if sender doesn't have role #1
+      ✔ revert if sender doesn't have role #2
+    internal functions
+      _grantRole
+        ✔ return true if the account does not have the role
+        ✔ return false if the account has the role
+      _revokeRole
+        ✔ return true if the account has the role
+        ✔ return false if the account does not have the role
+    ERC165
+      ✔ all interface functions are in ABI
+      when the interfaceId is supported
+        ✔ uses less than 30k gas
+        ✔ returns true
+      when the interfaceId is not supported
+        ✔ uses less than 30k
+        ✔ returns false
+    enumerating
+      ✔ role bearers can be enumerated
+      ✔ role enumeration should be in sync after renounceRole call
+
+
+  37 passing (2s)
+

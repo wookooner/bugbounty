@@ -54,7 +54,9 @@ BugBounty/
 ├── AGENTS.md
 │
 ├── targets/
-│   └── TARGET-001/
+│   └── <project-name>/
+│       ├── README.md
+│       ├── official/
 │       ├── scope.md
 │       ├── overview.md
 │       ├── status.md
@@ -192,9 +194,9 @@ Target
 ## Starting a New Research Target
 
 1. 대상 ID를 생성한다.
-2. targets 디렉터리에 대상별 폴더를 생성한다.
-3. 버그바운티 정책과 허용 범위를 scope.md에 기록한다.
-4. 대상의 버전 및 기본 정보를 overview.md에 기록한다.
+2. `targets/<project-name>/`에 프로젝트 이름으로 폴더를 만들고 기존 대상 ID는 문서와 데이터에 유지한다.
+3. 공식 Information, Scope, Resources, Source를 확인하고 출처와 확인일을 `official/`에 저장한다. 연구 범위는 프로젝트의 `scope.md`에 기록한다.
+4. 시작 문서인 프로젝트 `README.md`에서 공식 자료와 상태를 연결하고, 버전과 소스 커밋을 고정한다.
 5. 소스코드 또는 분석 가능한 자료를 확보한다.
 6. architecture.md를 작성한다.
 7. attack_surface.md를 작성한다.
@@ -209,14 +211,12 @@ Target
 기존 연구를 재개할 때 다음 순서로 확인한다.
 
 1. AGENTS.md
-2. 대상 scope.md
-3. 대상 status.md
-4. 활성 가설
-5. 최근 연구 기록
-6. 관련 지식베이스
-7. 필요한 코드 및 기술 문서
+2. 프로젝트 README.md에서 official/의 Information, Scope, Resources, Source
+3. 프로젝트 scope.md와 status.md
+4. 활성 가설과 최근 연구 기록
+5. 관련 지식베이스와 필요한 코드 및 기술 문서
 
-status.md를 연구 재개의 기본 진입점으로 사용한다.
+프로젝트 README.md를 시작점으로 사용한다. 여러 프로젝트에 재사용되는 원칙과 자료는 knowledge/에 두고, 프로젝트별 연구 자료와 증거는 해당 프로젝트 폴더에 둔다.
 
 ## Knowledge Management
 
